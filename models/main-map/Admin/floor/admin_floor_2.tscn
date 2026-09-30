@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bls5tg7q5cm2m"]
+
+[ext_resource type="PackedScene" uid="uid://c171kvfnhxlsn" path="res://models/main-map/Admin/floor/Admin-floor2.glb" id="1_qfrcg"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_qfrcg"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Admin-floor2" unique_id=883420069 instance=ExtResource("1_qfrcg")]
+
+[node name="Cube" parent="." index="0" unique_id=1013651676]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1517613306]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1355456854]
+shape = SubResource("ConvexPolygonShape3D_qfrcg")

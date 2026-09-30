@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cusepj1bpjgv2"]
+
+[ext_resource type="PackedScene" uid="uid://buhydpndgbauo" path="res://models/main-map/Admin/object/Admin-table.glb" id="1_3hmlk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_3hmlk"]
+points = PackedVector3Array(-0.5714286, -5.047619, -0.61216664, 0.6134431, -1.0001, 0.67144436, -0.6134431, -1.0001, 0.67144436, 0.6134431, -1.0001, -0.65768236, 0.5714286, -5.047619, 0.62592864, -0.6134431, -1.0001, -0.65768236, -0.5714286, -5.047619, 0.62592864, 0.5714286, -5.047619, -0.61216664)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1o1rd"]
+points = PackedVector3Array(0.9791534, 0.9760413, 0.8524175, -0.9828649, -0.9856423, -0.8418606, -0.5096892, -1.0249381, -0.5455, 0.8773565, 0.96147925, -0.9144696, -0.9790858, 0.9759706, 0.8523592, 0.9791534, -0.9821001, 0.8524175, -0.8673355, -0.95828503, 0.91770804, 0.9829205, -0.98569536, -0.84190863, -0.9828649, 0.9799215, -0.8418606, -0.87712234, -0.9685608, -0.9142237, 0.8675863, 0.950242, 0.91797143, -0.9790858, -0.9820356, 0.8523592, 0.9829205, 0.9799797, -0.84190863, 0.8773565, -0.9688067, -0.9144696, -0.87712234, 0.9612099, -0.9142237, 0.8675863, -0.95854837, 0.91797143, -0.8673355, 0.9499535, 0.91770804, 0.5096892, -1.0249381, -0.5455, -0.49689853, -1.0004122, 0.54539996, 0.49689853, -1.0004122, 0.54539996)
+
+[node name="Admin-table" unique_id=721528031 instance=ExtResource("1_3hmlk")]
+
+[node name="Cube_001" parent="." index="0" unique_id=1727836070]
+transform = Transform3D(1.5, 0, 0, 0, 0.273, 0, 0, 0, 3, 0, 1.5, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" index="0" unique_id=2052376208]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0" unique_id=221431388]
+shape = SubResource("ConvexPolygonShape3D_3hmlk")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="1" unique_id=1661920888]
+shape = SubResource("ConvexPolygonShape3D_1o1rd")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://c25fgy0pg1gnx"]
+
+[ext_resource type="PackedScene" uid="uid://dlofo6h2tl0xa" path="res://models/main-map/O2/floor/O2-floor.glb" id="1_uj5s8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ecupc"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="O2-floor" unique_id=980796078 instance=ExtResource("1_uj5s8")]
+
+[node name="Cube" parent="." index="0" unique_id=307129173]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=149999957]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=2062984347]
+shape = SubResource("ConvexPolygonShape3D_ecupc")

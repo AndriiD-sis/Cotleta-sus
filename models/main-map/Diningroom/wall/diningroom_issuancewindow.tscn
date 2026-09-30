@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://df5rlutgpw5rr"]
+
+[ext_resource type="PackedScene" uid="uid://bb1xgxpyccari" path="res://models/main-map/Diningroom/wall/Diningroom-issuancewindow.glb" id="1_tahcp"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_57g4v"]
+points = PackedVector3Array(-59.494263, 1.3218102, 3.7301588, 27.793648, 21.952381, -2.6174936, 27.793648, 21.952381, -5.7936506, 27.793648, -9.793652, -2.6174936, -73.79365, -9.793652, -5.7936506, -73.79365, 21.952381, -5.7936506, -70.61159, 20.364458, 0.55493414, 2.396824, 1.3218102, 3.7301588, 27.793648, -9.793652, -5.7936506, 24.611588, 20.364458, 0.55493414, -73.79365, -9.793652, -2.6174936, -59.494263, -1.8540359, 3.7301588, 24.611588, -5.0298824, 0.55493414, -73.79365, 21.952381, -2.6174936, -70.61159, -5.0298824, 0.55493414, -1.4973562, -0.63758093, 3)
+
+[node name="Diningroom-issuancewindow" unique_id=656051254 instance=ExtResource("1_tahcp")]
+
+[node name="Cube_001" parent="." index="0" unique_id=428961604]
+transform = Transform3D(-2.6226832e-09, 0, 0.06, 0, 0.06, 0, -0.06, 0, -2.6226832e-09, 0.4, -0.59999996, -4.8)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" index="0" unique_id=1308964181]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0" unique_id=1474131849]
+shape = SubResource("ConvexPolygonShape3D_57g4v")

@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://giar2m5qrrco"]
+
+[ext_resource type="PackedScene" uid="uid://cidnk6knecujs" path="res://models/main-map/Admin/object/Admin-table2.glb" id="1_st36b"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_st36b"]
+points = PackedVector3Array(34.753967, -3.0192337, 6.0249443, -40.230526, -96.146935, -7.6, 31.183603, -96.146935, -7.6, 31.042206, -95.9622, 8.4, -43.7939, -20.645367, 9.231607, -40.230526, -4.3142076, -7.6, 31.190596, -4.3142076, -7.6, -40.089104, -95.9622, 8.4, 34.753967, -20.645367, 9.231607, -40.864037, -0.0002, 1.18855, -43.7939, -9.42691, 7.628276, 10.161584, -0.0002, -6.54322, 34.753967, -36.674603, 9.231607, -41.162136, 0.40580603, -6.6003, 34.2, -36.855507, -1.9543512, 10.161584, -0.0002, 1.18855, -41.490913, -2.7193983, 4.18672, 34.753967, -9.42691, 7.628276, 32.45098, -2.7193983, 4.18672, 33.13934, -3.0091896, 6.0249443)
+
+[node name="Admin-table2" unique_id=799330751 instance=ExtResource("1_st36b")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_010" parent_id_path=PackedInt32Array(599116608) index="0" unique_id=1095185490]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_010/StaticBody3D" index="0" unique_id=574322792]
+shape = SubResource("ConvexPolygonShape3D_st36b")

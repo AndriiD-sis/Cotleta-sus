@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://bqb2ynolfk1qv"]
+
+[ext_resource type="PackedScene" uid="uid://j5e8vmggrtfk" path="res://models/lobby/object/Cube.glb" id="1_hs61w"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_iy6yv"]
+size = Vector3(2, 2, 2)
+
+[node name="Cube2" unique_id=1688948776 instance=ExtResource("1_hs61w")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1512834991) index="0" unique_id=290755677]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1891308464]
+shape = SubResource("BoxShape3D_iy6yv")

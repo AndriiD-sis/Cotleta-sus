@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://diilkr71eory"]
+
+[ext_resource type="PackedScene" uid="uid://ojjlx77v41ny" path="res://models/lobby/floor/stairs-lobby.glb" id="1_dhjlc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0evjh"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="stairs-lobby" unique_id=1410309000 instance=ExtResource("1_dhjlc")]
+
+[node name="Cube" parent="." index="0" unique_id=2074959936]
+transform = Transform3D(0.2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=780817408]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1100333271]
+shape = SubResource("ConvexPolygonShape3D_0evjh")

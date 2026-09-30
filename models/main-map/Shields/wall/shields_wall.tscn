@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://oos8moa42vk2"]
+
+[ext_resource type="PackedScene" uid="uid://c7wl8sn7jytdm" path="res://models/main-map/Shields/wall/Shields-wall.glb" id="1_dyp4v"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dyp4v"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Shields-wall" unique_id=1513109369 instance=ExtResource("1_dyp4v")]
+
+[node name="Cube" parent="." index="0" unique_id=804849314]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1281562387]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1595213390]
+shape = SubResource("ConvexPolygonShape3D_dyp4v")

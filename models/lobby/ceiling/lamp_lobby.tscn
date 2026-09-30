@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d18xd2ay1jhhu"]
+
+[ext_resource type="PackedScene" uid="uid://6fiy2t7km4ul" path="res://models/lobby/ceiling/lamp-lobby.glb" id="1_74qlq"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kp6r3"]
+size = Vector3(2, 2, 2)
+
+[node name="lamp-lobby" unique_id=1331120772 instance=ExtResource("1_74qlq")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1756654724) index="0" unique_id=449301770]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=603957687]
+shape = SubResource("BoxShape3D_kp6r3")

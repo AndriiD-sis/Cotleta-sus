@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dw8rvkok7xmxc"]
+
+[ext_resource type="PackedScene" uid="uid://dc1ca1oh8f5be" path="res://models/main-map/Objects/Task-WiFi.glb" id="1_ea5b4"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ncuyv"]
+points = PackedVector3Array(-0.95805436, -0.98903435, -0.95805436, 0.95804274, 0.9890223, 0.95804274, 0.95804274, 0.95804274, 0.9890223, 0.98903435, -0.95805436, -0.95805436, -0.95805436, 0.98903435, -0.95805436, -0.95805436, -0.95805436, 0.98903435, -0.9890223, 0.95804274, 0.95804274, 0.95804274, -0.9890223, 0.95804274, 0.95804274, 0.95804274, -0.9890223, -0.95805436, -0.95805436, -0.98903435, -0.98903435, -0.95805436, -0.95805436, 0.9890223, 0.95804274, 0.95804274, 0.95805436, -0.95805436, 0.98903435, 0.98903435, 0.95805436, -0.95805436, -0.95805436, 0.98903435, 0.95805436, 0.95805436, -0.98903435, -0.95805436, -0.95805436, 0.95805436, -0.98903435, -0.98903435, -0.95805436, 0.95805436, 0.95804274, -0.95804274, -0.9890223, -0.9890223, 0.95804274, -0.95804274, -0.95804274, -0.9890223, 0.95804274, -0.95804274, 0.95804274, 0.9890223, 0.9890223, -0.95804274, 0.95804274, 0.95804274, 0.9890223, -0.95804274)
+
+[node name="Task-WiFi" unique_id=1870366820 instance=ExtResource("1_ea5b4")]
+
+[node name="Cube" parent="." index="0" unique_id=1629581789]
+transform = Transform3D(0.06, 0, 0, 0, 0.6, 0, 0, 0, 0.84, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=147001084]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=195193653]
+shape = SubResource("ConvexPolygonShape3D_ncuyv")

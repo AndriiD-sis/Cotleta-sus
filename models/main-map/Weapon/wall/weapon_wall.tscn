@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://8qhpvfpml8ab"]
+
+[ext_resource type="PackedScene" uid="uid://s26k34qpwr47" path="res://models/main-map/Weapon/wall/Weapon-wall.glb" id="1_0d36f"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_gs88k"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Weapon-wall" unique_id=235778164 instance=ExtResource("1_0d36f")]
+
+[node name="Cube" parent="." index="0" unique_id=1457540828]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=619223191]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1142216924]
+shape = SubResource("ConvexPolygonShape3D_gs88k")

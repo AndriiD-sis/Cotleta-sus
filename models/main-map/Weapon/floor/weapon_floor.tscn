@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bgyrhpqb1imkl"]
+
+[ext_resource type="PackedScene" uid="uid://dqg1j27bdi0sj" path="res://models/main-map/Weapon/floor/Weapon-floor.glb" id="1_5s15f"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5s15f"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Weapon-floor" unique_id=1586206120 instance=ExtResource("1_5s15f")]
+
+[node name="Cube" parent="." index="0" unique_id=925770710]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=901795962]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=594348447]
+shape = SubResource("ConvexPolygonShape3D_5s15f")

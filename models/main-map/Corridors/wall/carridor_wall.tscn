@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://ebnnh0ofopie"]
+
+[ext_resource type="PackedScene" uid="uid://dslgxwvdiwifr" path="res://models/main-map/Corridors/wall/Carridor-wall.glb" id="1_n5gd5"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_n5gd5"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Carridor-wall" unique_id=528088953 instance=ExtResource("1_n5gd5")]
+
+[node name="Cube" parent="." index="0" unique_id=2083857397]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=2099994239]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1362089766]
+shape = SubResource("ConvexPolygonShape3D_n5gd5")

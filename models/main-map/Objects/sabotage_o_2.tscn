@@ -1,0 +1,22 @@
+[gd_scene format=3 uid="uid://cxt6776tmff74"]
+
+[ext_resource type="PackedScene" uid="uid://cxrsqpfah1acj" path="res://models/main-map/Objects/Sabotage-o2.glb" id="1_rhw2j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_rhw2j"]
+size = Vector3(2, 2, 2)
+
+[node name="Sabotage-o2" unique_id=978176177 instance=ExtResource("1_rhw2j")]
+
+[node name="Cube" parent="." index="0" unique_id=154763435]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=701313853]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1260192746]
+shape = SubResource("BoxShape3D_rhw2j")
+
+[node name="Cube_02" parent="." index="1" unique_id=908572410]
+transform = Transform3D(0.025, 0, 0, 0, 0.075, 0, 0, 0, 0.075, 0.075, -0.25, -0.25)
+
+[node name="Cube_03" parent="." index="2" unique_id=1035894277]
+transform = Transform3D(0.1, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 0, 0)

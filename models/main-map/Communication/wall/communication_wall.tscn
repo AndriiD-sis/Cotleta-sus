@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b4v62lnafdc38"]
+
+[ext_resource type="PackedScene" uid="uid://dksk8a8ahag0b" path="res://models/main-map/Communication/wall/Communication-wall.glb" id="1_s04vy"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hshqm"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Communication-wall" unique_id=138458748 instance=ExtResource("1_s04vy")]
+
+[node name="Cube" parent="." index="0" unique_id=1203079548]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=673147835]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1758041069]
+shape = SubResource("ConvexPolygonShape3D_hshqm")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://urfva5cb1r88"]
+
+[ext_resource type="PackedScene" uid="uid://d3840qjqql1x3" path="res://models/main-map/Storage/wall/Storage-wall.glb" id="1_car51"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_5uth5"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Storage-wall" unique_id=1719021075 instance=ExtResource("1_car51")]
+
+[node name="Cube" parent="." index="0" unique_id=686198003]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=337727810]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1102464301]
+shape = SubResource("ConvexPolygonShape3D_5uth5")

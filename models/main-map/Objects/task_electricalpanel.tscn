@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dbiabk8ewcqx6"]
+
+[ext_resource type="PackedScene" uid="uid://biqvwrgp07tq5" path="res://models/main-map/Objects/Task-electricalpanel.glb" id="1_ep4re"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ybp30"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Task-electricalpanel" unique_id=1494562419 instance=ExtResource("1_ep4re")]
+
+[node name="Cube" parent="." index="0" unique_id=1378632447]
+transform = Transform3D(0.081, 0, 0, 0, 0.7, 0, 0, 0, 0.98, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=458545808]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1394361164]
+shape = SubResource("ConvexPolygonShape3D_ybp30")

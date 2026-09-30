@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dqav4gmcox8j4"]
+
+[node name="Control" type="Control" unique_id=1918156980]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="." unique_id=1808883289]
+layout_mode = 0
+offset_left = 467.0
+offset_top = 191.0
+offset_right = 678.35486
+offset_bottom = 308.0
+text = "START"

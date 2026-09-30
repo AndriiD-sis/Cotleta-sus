@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://dym7lngs3u8g6"]
+
+[ext_resource type="PackedScene" uid="uid://bqtidfg8did6o" path="res://models/main-map/Diningroom/wall/Diningroom-window.glb" id="1_b1hdk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_kr345"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Diningroom-window" unique_id=191397645 instance=ExtResource("1_b1hdk")]
+
+[node name="Cube" parent="." index="0" unique_id=158770541]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1565456336]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1036071183]
+shape = SubResource("ConvexPolygonShape3D_kr345")

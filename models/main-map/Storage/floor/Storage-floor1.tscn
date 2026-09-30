@@ -1,0 +1,17 @@
+[gd_scene format=3]
+
+[ext_resource type="PackedScene" uid="uid://c7wpjhsrxqmsy" path="res://models/lobby/floor/floor-lobby1.glb" id="1_3lqbl"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ilahx"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="floor-lobby1" unique_id=1903244128 instance=ExtResource("1_3lqbl")]
+
+[node name="Cube" parent="." index="0" unique_id=1853116043]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=295974173]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1299623900]
+shape = SubResource("ConvexPolygonShape3D_ilahx")

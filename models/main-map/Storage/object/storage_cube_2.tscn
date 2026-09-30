@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://y1qim32k72a6"]
+
+[ext_resource type="PackedScene" uid="uid://d1di0tkve6pc4" path="res://models/main-map/Storage/object/Storage-cube2.glb" id="1_qxm58"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_52psh"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Storage-cube2" unique_id=582552893 instance=ExtResource("1_qxm58")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(118668828) index="0" unique_id=1739867037]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1637402007]
+shape = SubResource("ConvexPolygonShape3D_52psh")

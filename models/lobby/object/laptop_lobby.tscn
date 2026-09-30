@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c07nb5depji3l"]
+
+[ext_resource type="PackedScene" uid="uid://bndhr76ct28fi" path="res://models/lobby/object/laptop-lobby.glb" id="1_htnum"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_okgqi"]
+points = PackedVector3Array(-1, -1.5481428, -20.42402, -1, -1.3513452, -20.769226, 1, -1.5481428, -20.42402, -1, -1.2009408, -0.72602654, 1, -1.3513452, -20.769226, -1, 1.0000001, -1.0009117, 1, -1.2009408, -0.72602654, -1, -1.0001523, 0.9999981, 1, 1.0000001, -1.0009117, -1, 1.0000001, 0.9999981, 1, -1.0001523, 0.9999981, 1, 1.0000001, 0.9999981)
+
+[node name="laptop-lobby" unique_id=249753609 instance=ExtResource("1_htnum")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" parent_id_path=PackedInt32Array(1049024976) index="0" unique_id=736895246]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0" unique_id=1596152861]
+shape = SubResource("ConvexPolygonShape3D_okgqi")
