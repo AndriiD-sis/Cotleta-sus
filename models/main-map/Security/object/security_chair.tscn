@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://dsfyfr2sbrln"]
+
+[ext_resource type="PackedScene" uid="uid://kihcsrttp6tb" path="res://models/main-map/Security/object/Security-chair.glb" id="1_qe5la"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_pwwrg"]
+points = PackedVector3Array(0.3911453, -1, 0.19755676, -0.3611111, -10.5912695, -0.17849997, -0.3611111, -10.5912695, 0.18650791, -0.3832088, -1, 0.19755676, -0.1895445, -1, -0.3832088, 0.36904758, -10.5912695, -0.17849997, 0.18650791, -10.5912695, 0.36904758, 0.19755676, -1, -0.3832088, -0.1895445, -1, 0.3911453, -0.17849997, -10.5912695, -0.3611111, -0.3832088, -1, -0.1895445, 0.19755676, -1, 0.3911453, 0.3911453, -1, -0.1895445, 0.18650791, -10.5912695, -0.3611111, 0.36904758, -10.5912695, 0.18650791, -0.17849997, -10.5912695, 0.36904758)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fu7w7"]
+points = PackedVector3Array(0.36890465, -1.281746, 0.18643644, -1.0912699, -1.0991706, -1.0912699, -1.0912699, -1.0991706, 1.0992063, 1.0992063, 1.0912699, -1.0912699, -1.0912699, 1.0912699, 1.0992063, 1.0992063, 1.0912699, 1.0992063, -1.0912699, 1.0912699, -1.0912699, 1.0992063, -1.0991706, -1.0912699, 1.0992063, -1.0991706, 1.0992063, -0.36096817, -1.281746, -0.17849997, -0.17849997, -1.281746, 0.36890465, 0.18643644, -1.281746, -0.36096817, 0.36890465, -1.281746, -0.17849997, -0.36096817, -1.281746, 0.18643644, 0.18643644, -1.281746, 0.36890465, -0.17849997, -1.281746, -0.36096817)
+
+[node name="Security-chair" unique_id=1786545002 instance=ExtResource("1_qe5la")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1448277883) index="0" unique_id=1491055890]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1359595709]
+shape = SubResource("ConvexPolygonShape3D_pwwrg")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube/StaticBody3D" index="1" unique_id=821347988]
+shape = SubResource("ConvexPolygonShape3D_fu7w7")

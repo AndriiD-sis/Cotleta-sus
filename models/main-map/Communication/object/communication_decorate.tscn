@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bu4vy017uid0v"]
+
+[ext_resource type="PackedScene" uid="uid://cdfi5vq6ljgea" path="res://models/main-map/Communication/object/Communication-decorate.glb" id="1_iq42d"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_iq42d"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Communication-decorate" unique_id=1159034651 instance=ExtResource("1_iq42d")]
+
+[node name="Cube" parent="." index="0" unique_id=647857598]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 1.5, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1073807022]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1503006402]
+shape = SubResource("ConvexPolygonShape3D_iq42d")

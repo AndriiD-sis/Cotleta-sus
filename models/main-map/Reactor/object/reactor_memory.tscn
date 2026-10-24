@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dvlvoclkj6m04"]
+
+[ext_resource type="PackedScene" uid="uid://t0th7eiyycck" path="res://models/main-map/Reactor/object/Reactor-memory.glb" id="1_duj7n"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgdc4"]
+points = PackedVector3Array(0.9394937, 0.5151266, -0.9698735, -0.8787571, 0.9696893, 0.9696893, -0.8787571, 0.9696893, -0.9696893, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, 1, 0.4998042, 1, -1, 1, -1, -1, 1, 1, 1, 0.4998042, -1)
+
+[node name="Reactor-memory" unique_id=9899724 instance=ExtResource("1_duj7n")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(967497011) index="0" unique_id=1660987694]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1012426187]
+shape = SubResource("ConvexPolygonShape3D_dgdc4")

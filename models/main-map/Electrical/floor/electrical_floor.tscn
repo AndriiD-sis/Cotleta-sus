@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bplkwmkhtfb3l"]
+
+[ext_resource type="PackedScene" uid="uid://buwl230orgksf" path="res://models/main-map/Electrical/floor/Electrical-floor.glb" id="1_qghry"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_fu6sy"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Electrical-floor" unique_id=162203414 instance=ExtResource("1_qghry")]
+
+[node name="Cube" parent="." index="0" unique_id=1992006203]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1925293131]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=403094438]
+shape = SubResource("ConvexPolygonShape3D_fu6sy")

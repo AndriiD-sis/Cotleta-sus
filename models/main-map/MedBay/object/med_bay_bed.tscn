@@ -1,0 +1,21 @@
+[gd_scene format=3 uid="uid://d25gbwyawgsp8"]
+
+[ext_resource type="PackedScene" uid="uid://55mvefuch5j5" path="res://models/main-map/MedBay/object/MedBay-bed.glb" id="1_d214d"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_nxdce"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ng0pr"]
+points = PackedVector3Array(0.61105675, -5.1653614, 0.61105675, -1, -5.867743, -1, 1, -5.867743, -1, -1, 0.8684391, -1, -1, 0.8684391, 1, 1, 0.8684391, 1, 1, 0.8684391, -1, -0.61105675, -6.054859, 0.49988037, -1.0555556, -1.056132, 1.0555556, 1.0555556, -1.056132, 1.0555556, 1.0555556, -6.054859, -0.83320284, -1.0555556, -6.054859, -0.83320284, 0.55, -5.699623, 0.44993237, -0.61105675, -5.1653614, 0.61105675)
+
+[node name="MedBay-bed" unique_id=1012601773 instance=ExtResource("1_d214d")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(660419660) index="0" unique_id=516233892]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=159321481]
+shape = SubResource("ConvexPolygonShape3D_nxdce")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_001" parent_id_path=PackedInt32Array(955864935) index="0" unique_id=1647396645]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_001/StaticBody3D" index="0" unique_id=753757248]
+shape = SubResource("ConvexPolygonShape3D_ng0pr")

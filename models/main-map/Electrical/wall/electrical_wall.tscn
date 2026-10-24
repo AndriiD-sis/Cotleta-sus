@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://byyiqopubxix1"]
+
+[ext_resource type="PackedScene" uid="uid://bjfcmo5ml3sfm" path="res://models/main-map/Electrical/wall/Electrical-wall.glb" id="1_jhsmr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ucry5"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Electrical-wall" unique_id=911669897 instance=ExtResource("1_jhsmr")]
+
+[node name="Cube" parent="." index="0" unique_id=340407745]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=2080575335]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1540388038]
+shape = SubResource("ConvexPolygonShape3D_ucry5")

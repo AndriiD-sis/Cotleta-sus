@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://ck70qr22fbrp0"]
+
+[ext_resource type="PackedScene" uid="uid://cgo1gwgu7ptpc" path="res://models/main-map/Security/object/Security-chair2.glb" id="1_s65qr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xmm13"]
+points = PackedVector3Array(0.25, -1.064402, 2.0595236, -0.2261905, -1.6595237, -5.5595236, -0.2261905, -1.3024507, -5.5595236, 0.25, -1.6595237, -5.5595236, -0.2261905, -1.6595237, 2.0595236, 0.25, -1.6595237, 2.0595236, -0.2261905, -1.064402, 2.0595236, 0.25, -1.3024507, -5.5595236, 0.25, -1.064402, 0.9878154, -0.2261905, -1.064402, 0.9878154)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dyw04"]
+points = PackedVector3Array(-0.96085453, -0.9656162, 0.9440518, 0.9680003, 0.9632386, 0.93664896, 0.9734407, -0.95439297, 0.9390659, 1.0833333, 1.0785716, -1.0357144, -1.0595238, 0.95943075, 1.1069564, -0.9678392, -0.9726009, -0.90328103, 0.24997665, -1.0642855, 2.0595238, -0.95959264, 0.9786404, -0.89136934, 0.9786404, -0.95959264, -0.8844913, -0.5829605, 0.4830771, 2.0595238, 0.60697967, 0.36393628, 2.0595238, -1.0595238, -0.9451447, 1.1069564, -0.5829605, -0.46900085, 2.0595238, 0.60697967, -0.34985998, 2.0595238, 0.48804858, 0.4830771, 2.0595238, -0.19999999, -0.9473625, 1.890635, -0.9537031, 0.97275084, 0.94087476)
+
+[node name="Security-chair2" unique_id=1926149336 instance=ExtResource("1_s65qr")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube_003" parent_id_path=PackedInt32Array(504556094) index="0" unique_id=612501567]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="0" unique_id=1599095776]
+shape = SubResource("ConvexPolygonShape3D_xmm13")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube_003/StaticBody3D" index="1" unique_id=707184158]
+shape = SubResource("ConvexPolygonShape3D_dyw04")

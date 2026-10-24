@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dqnyjr37wb40y"]
+
+[ext_resource type="PackedScene" uid="uid://pt112limg84h" path="res://models/main-map/Shields/object/Shields-pc2.glb" id="1_w1wcq"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_w1wcq"]
+points = PackedVector3Array(-1, -1, 1, 0.96972, 0.96972, 0.06056004, 0.96972, 0.636355, 0.72729, 1, -1, -1, -1, 1, -1, -1, -1, -1, 1, -1, 1, -0.9698121, 0.515094, 0.9698121, 1, 1, -1, -0.96972, 0.96972, 0.06056004, 0.9698121, 0.515094, 0.9698121)
+
+[node name="Shields-pc2" unique_id=67634007 instance=ExtResource("1_w1wcq")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(862734343) index="0" unique_id=1535079184]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=209181892]
+shape = SubResource("ConvexPolygonShape3D_w1wcq")

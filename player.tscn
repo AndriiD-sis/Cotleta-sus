@@ -1,0 +1,38 @@
+[gd_scene format=3 uid="uid://cb3hs57o2b5x6"]
+
+[ext_resource type="Script" uid="uid://b6roqpgfhj5a0" path="res://player.gd" id="1_onrkg"]
+[ext_resource type="PackedScene" uid="uid://q2j2j0xbse4u" path="res://models/lobby/object/among-defult.glb" id="2_i3pqv"]
+
+[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_hqtel"]
+margin = 1.0
+radius = 1.0
+height = 3.0
+
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_onrkg"]
+properties/0/path = NodePath(".:position")
+properties/0/spawn = true
+properties/0/replication_mode = 1
+properties/1/path = NodePath(".:rotation")
+properties/1/spawn = true
+properties/1/replication_mode = 1
+properties/2/path = NodePath(".:is_walking")
+properties/2/spawn = true
+properties/2/replication_mode = 2
+
+[node name="CharacterBody3D" type="CharacterBody3D" unique_id=1304741408]
+collision_layer = 2
+script = ExtResource("1_onrkg")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=722638528]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.592287, 0)
+shape = SubResource("CapsuleShape3D_hqtel")
+
+[node name="among-defult" parent="CollisionShape3D" unique_id=1408937156 instance=ExtResource("2_i3pqv")]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5368471, 0)
+
+[node name="Camera3D" type="Camera3D" parent="." unique_id=1161774877]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.241722, -1.2073183)
+current = true
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1286250913]
+replication_config = SubResource("SceneReplicationConfig_onrkg")

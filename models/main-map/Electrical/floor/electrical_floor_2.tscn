@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://xjndlwuv2ec3"]
+
+[ext_resource type="PackedScene" uid="uid://bogtwrql6mm4l" path="res://models/main-map/Electrical/floor/Electrical-floor2.glb" id="1_6l4gn"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_elffr"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Electrical-floor2" unique_id=1642842475 instance=ExtResource("1_6l4gn")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(296210649) index="0" unique_id=314634702]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1565718106]
+shape = SubResource("ConvexPolygonShape3D_elffr")

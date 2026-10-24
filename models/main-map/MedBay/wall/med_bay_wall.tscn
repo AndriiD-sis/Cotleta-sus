@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cktp4kqb2ld6h"]
+
+[ext_resource type="PackedScene" uid="uid://b54culkj3r8nm" path="res://models/main-map/MedBay/wall/MedBay-wall.glb" id="1_l0lxv"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oivb6"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="MedBay-wall" unique_id=1629344738 instance=ExtResource("1_l0lxv")]
+
+[node name="Cube" parent="." index="0" unique_id=790936678]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 1.4, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1303253517]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=748988505]
+shape = SubResource("ConvexPolygonShape3D_oivb6")

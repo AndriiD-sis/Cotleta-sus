@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cg31h8vag867h"]
+
+[ext_resource type="PackedScene" uid="uid://ck6d3djt1tugi" path="res://models/main-map/Electrical/object/Electrical-elctricshield.glb" id="1_x7es3"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hfhr1"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Electrical-elctricshield" unique_id=1914526639 instance=ExtResource("1_x7es3")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(19346655) index="0" unique_id=1163212081]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=706507363]
+shape = SubResource("ConvexPolygonShape3D_hfhr1")

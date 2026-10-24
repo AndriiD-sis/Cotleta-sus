@@ -1,0 +1,19 @@
+[gd_scene format=3 uid="uid://hncpwkgtek0"]
+
+[ext_resource type="PackedScene" uid="uid://bldpeyqgfhonw" path="res://models/main-map/Security/object/Security-table2.glb" id="1_fs08h"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ydvtj"]
+points = PackedVector3Array(-0.9845238, -0.9845238, -1, 1, 1, 0.24032746, 1.0023395, -0.9904347, 0.24178961, -1, -1, 0.24776791, -0.9880953, 1, 0.24032746, 0.9358, 0.9850622, -0.9928961, -0.9845238, 0.9964285, -1, 0.9876533, -0.9757486, -0.9453872, 0.9358, -0.97315747, -0.9928961, 0.9876533, 0.9876533, -0.9453872)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ldco3"]
+points = PackedVector3Array(-0.98452365, -1, 0.27356154, 2.215476, 1, 0.973791, 2.1776288, 0.97634536, 0.33548248, 2.215943, -0.98838717, 0.9738859, -0.8649471, 0.9371694, 1, -0.96547616, 1, 0.2780258, -0.8649471, -0.92526466, 1, 2.1776288, -0.96444064, 0.33548248, 2.068277, 0.9371694, 1, 2.068277, -0.92526466, 1, 1.0378075, 0.92434114, 0.30639789, 1.0378075, -0.9124364, 0.30639789)
+
+[node name="Security-table2" unique_id=1776330222 instance=ExtResource("1_fs08h")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(286622854) index="0" unique_id=1722240515]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=718876192]
+shape = SubResource("ConvexPolygonShape3D_ydvtj")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube/StaticBody3D" index="1" unique_id=653212072]
+shape = SubResource("ConvexPolygonShape3D_ldco3")

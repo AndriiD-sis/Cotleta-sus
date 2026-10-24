@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://cfq4woqmfv55u"]
+
+[ext_resource type="PackedScene" uid="uid://c1vx0f6v8wnwx" path="res://models/main-map/Engine/object/Engine-calibration.glb" id="1_tdjpd"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k350t"]
+points = PackedVector3Array(1.0441064, -0.25294736, -0.92816234, -0.54683536, 0.93462163, 0.93462163, -0.54683536, 0.93462163, -0.93465024, -0.9969699, -1, 0.9999714, 1.3302554, -1, 0.9999714, -0.9969699, -1, -1, -0.9970032, 1, 1, 1.3302554, -1, -1, -0.9969699, 0.9999714, -1, 0.69795865, 0.116013475, 0.9131904, 0.26713037, 0.48531598, -0.9209159, 1.1878636, -0.42544228, 0.9362571, 0.26713037, 0.48531598, 0.9208873, 1.2705104, -0.62311184, -0.9793319, 1.2705104, -0.62311184, 0.9793033, 0.8755732, -0.050723784, -0.9284158, 0.8755732, -0.050723784, 0.92838717, 1.1878636, -0.42544228, -0.93628573, 0.69795865, 0.116013475, -0.91321903, -0.03492395, 0.6554074, 0.9245629, -0.03492395, 0.6554074, -0.9245915, 1.3061134, -0.8368146, 0.9792241, 1.3061134, -0.8368146, -0.9792527)
+
+[node name="Engine-calibration" unique_id=462409539 instance=ExtResource("1_tdjpd")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1489719834) index="0" unique_id=961480744]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1985188525]
+shape = SubResource("ConvexPolygonShape3D_k350t")

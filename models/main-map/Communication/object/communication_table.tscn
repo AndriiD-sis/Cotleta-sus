@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://dbphkd2iwym35"]
+
+[ext_resource type="PackedScene" uid="uid://hac0jxppq0fl" path="res://models/main-map/Communication/object/Communication-table.glb" id="1_b7jbg"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_b7jbg"]
+points = PackedVector3Array(-1, -1, -1, 0.99375033, 0.99375033, 0.931495, 0.99375033, 0.99375033, -0.931495, -1, 1, -1, -1, -1, 1, 0.99375033, -0.99375033, -0.931495, -1, 1, 1, 0.931495, -0.99375033, 0.99375033, 0.931495, 0.99375033, -0.99375033, 0.931495, -0.99375033, -0.99375033, 0.931495, 0.99375033, 0.99375033, 0.99375033, -0.99375033, 0.931495)
+
+[node name="Communication-table" unique_id=157738081 instance=ExtResource("1_b7jbg")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(1362572270) index="0" unique_id=1018245939]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=296796767]
+shape = SubResource("ConvexPolygonShape3D_b7jbg")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://s5mkdex7dgq6"]
+
+[ext_resource type="PackedScene" uid="uid://fo55sltb6qrr" path="res://models/main-map/Weapon/object/Weapon-chair.glb" id="1_mfwsi"]
+
+[node name="Weapon-chair" unique_id=744031102 instance=ExtResource("1_mfwsi")]
+
+[node name="Cube_002" parent="." index="0" unique_id=177435017]
+transform = Transform3D(0.5, 0, 0, 0, 0.286, 0, 0, 0, 0.5, 0, -0.5, 0)

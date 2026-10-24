@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://qlmoci1lr0hb"]
+
+[ext_resource type="PackedScene" uid="uid://c4tf2tvn6ffsx" path="res://models/main-map/Reactor/floor/Reactor-floor.glb" id="1_f6y66"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_eun73"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Reactor-floor" unique_id=156325198 instance=ExtResource("1_f6y66")]
+
+[node name="Cube" parent="." index="0" unique_id=2140165393]
+transform = Transform3D(2, 0, 0, 0, 0.1, 0, 0, 0, 2, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1802240382]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=2139674199]
+shape = SubResource("ConvexPolygonShape3D_eun73")

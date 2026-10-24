@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://baef1pso72ui2"]
+
+[ext_resource type="PackedScene" uid="uid://b6peyhtgl4byo" path="res://models/main-map/Electrical/object/Electrical-decorate8.glb" id="1_lu78s"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_cbcs6"]
+points = PackedVector3Array(-0.99819374, -1, -1, 1.1999999, 0.9921132, 0.9921132, 1.1999999, -0.8983977, 0.9921132, -1, 0.99211305, 0.99211305, 1.1981936, 0.99047613, -1, -0.99819374, -1, 0.99047613, -0.99819374, 0.99047613, -1, 0.9920135, -1, -1, 1.1981936, -0.89693016, -1, 0.9920135, -1, 0.99047613)
+
+[node name="Electrical-decorate8" unique_id=367938826 instance=ExtResource("1_lu78s")]
+
+[node name="Cube" parent="." index="0" unique_id=1688004702]
+transform = Transform3D(1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=684389280]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=13432519]
+shape = SubResource("ConvexPolygonShape3D_cbcs6")

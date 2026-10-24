@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://d270d5adgbeh"]
+
+[ext_resource type="PackedScene" uid="uid://jpxtptkmos1y" path="res://models/main-map/Reactor/object/Sabotage-reactor.glb" id="1_mk8rv"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_se168"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Sabotage-reactor" unique_id=1915458373 instance=ExtResource("1_mk8rv")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(649597961) index="0" unique_id=788024760]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=531726373]
+shape = SubResource("ConvexPolygonShape3D_se168")

@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://bh87ydoa6mnq1"]
+
+[ext_resource type="PackedScene" uid="uid://cpx82ab6ts2wy" path="res://models/main-map/Objects/Task-redirection2.glb" id="1_yrhyx"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_etxgo"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Task-redirection2" unique_id=174674175 instance=ExtResource("1_yrhyx")]
+
+[node name="Cube" parent="." index="0" unique_id=115844661]
+transform = Transform3D(0.06, 0, 0, 0, 1, 0, 0, 0, 0.06, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=364948145]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1220711127]
+shape = SubResource("ConvexPolygonShape3D_etxgo")

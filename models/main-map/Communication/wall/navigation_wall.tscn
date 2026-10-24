@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://56smvccrmy33"]
+
+[ext_resource type="PackedScene" uid="uid://pawht3u4e5qd" path="res://models/main-map/Navigation/wall/Navigation-wall.glb" id="1_vgaa8"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_31lm0"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Navigation-wall" unique_id=1470286233 instance=ExtResource("1_vgaa8")]
+
+[node name="Cube" parent="." index="0" unique_id=1728035795]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=367420839]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1849687993]
+shape = SubResource("ConvexPolygonShape3D_31lm0")

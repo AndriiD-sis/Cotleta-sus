@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cln2ubs0srirc"]
+
+[ext_resource type="PackedScene" uid="uid://bhhlbbkfb0myj" path="res://models/main-map/Corridors/floor/Corridor-floor4.glb" id="1_qxppr"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hoqil"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Corridor-floor4" unique_id=855157612 instance=ExtResource("1_qxppr")]
+
+[node name="Cube" parent="." index="0" unique_id=636247815]
+transform = Transform3D(1.6, 0, 0, 0, 0.1, 0, 0, 0, 1.4, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1525018769]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=804754707]
+shape = SubResource("ConvexPolygonShape3D_hoqil")

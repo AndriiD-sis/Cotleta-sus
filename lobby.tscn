@@ -1,11 +1,11 @@
 [gd_scene format=3 uid="uid://d0fiuwkcbmsdg"]
 
+[ext_resource type="Script" uid="uid://c8mte8f85wmve" path="res://lobby.gd" id="1_hx1n1"]
 [ext_resource type="PackedScene" uid="uid://dpk2g6otsddyd" path="res://models/lobby/ceiling/ceiling.tscn" id="1_mcopp"]
 [ext_resource type="PackedScene" uid="uid://dp5c10l5t2ndt" path="res://models/lobby/floor/floor_lobby_1.tscn" id="1_xrgmn"]
 [ext_resource type="PackedScene" uid="uid://diilkr71eory" path="res://models/lobby/floor/stairs_lobby.tscn" id="2_1gg6n"]
-[ext_resource type="PackedScene" uid="uid://q2j2j0xbse4u" path="res://models/lobby/object/among-defult.glb" id="2_2wvic"]
 [ext_resource type="PackedScene" uid="uid://d18xd2ay1jhhu" path="res://models/lobby/ceiling/lamp_lobby.tscn" id="2_nu6hm"]
-[ext_resource type="Script" uid="uid://b6roqpgfhj5a0" path="res://character_body_3d.gd" id="2_tftiq"]
+[ext_resource type="PackedScene" uid="uid://cb3hs57o2b5x6" path="res://player.tscn" id="2_wjc17"]
 [ext_resource type="PackedScene" uid="uid://dy58buoeanj4r" path="res://models/lobby/floor/lobby_way.tscn" id="5_1gg6n"]
 [ext_resource type="PackedScene" uid="uid://d2txcift2vomu" path="res://models/lobby/wall/wall_lobby_1.tscn" id="5_ein8w"]
 [ext_resource type="PackedScene" uid="uid://bdrnbqafs0ob0" path="res://models/lobby/floor/floor_lobby_2.tscn" id="6_x4164"]
@@ -17,12 +17,9 @@
 [ext_resource type="PackedScene" uid="uid://d0j7usmciajwh" path="res://models/lobby/object/chair_lobby.tscn" id="9_hx1n1"]
 [ext_resource type="PackedScene" uid="uid://c07nb5depji3l" path="res://models/lobby/object/laptop_lobby.tscn" id="10_selw0"]
 
-[sub_resource type="CapsuleShape3D" id="CapsuleShape3D_x4164"]
-margin = 1.0
-radius = 1.0
-height = 3.0
-
 [node name="lobby" type="Node3D" unique_id=107225608]
+script = ExtResource("1_hx1n1")
+player_scene = ExtResource("2_wjc17")
 
 [node name="ship" type="Node3D" parent="." unique_id=1955643454]
 
@@ -36,32 +33,36 @@ rotation_edit_mode = 2
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -0.99999994, 0, -4.3711385e-08, -5, 8, 2)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ship/ceiling/lamp-lobby" unique_id=731195632]
-transform = Transform3D(1.0000001, 0, 7.1054274e-15, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+transform = Transform3D(1.0000001, 0, 7.1054274e-15, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="lamp-lobby2" parent="ship/ceiling" unique_id=2110936656 instance=ExtResource("2_nu6hm")]
 transform = Transform3D(1.3113416e-07, 0, -1, 0, 1, 0, 1, 0, 1.3113416e-07, 5, 8, 2)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ship/ceiling/lamp-lobby2" unique_id=267168533]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="lamp-lobby3" parent="ship/ceiling" unique_id=885577573 instance=ExtResource("2_nu6hm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 5, 8, 8)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ship/ceiling/lamp-lobby3" unique_id=1676814879]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="lamp-lobby4" parent="ship/ceiling" unique_id=1658975058 instance=ExtResource("2_nu6hm")]
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -5, 8, 8)
 
 [node name="OmniLight3D" type="OmniLight3D" parent="ship/ceiling/lamp-lobby4" unique_id=1298378416]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -5, 0)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -3, 0)
 light_energy = 10.0
+shadow_enabled = true
 omni_range = 10.0
 
 [node name="wall" type="Node3D" parent="ship" unique_id=20328513]
@@ -291,26 +292,172 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.57, 12.106)
 [node name="lobby-way3" parent="ship/floor" unique_id=1518302255 instance=ExtResource("5_1gg6n")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.9, 0.57, 14.106)
 
-[node name="CharacterBody3D" type="CharacterBody3D" parent="." unique_id=789784005]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.7171225, 0)
-script = ExtResource("2_tftiq")
+[node name="Chose_host" type="CanvasLayer" parent="." unique_id=1355084437]
 
-[node name="among-defult" parent="CharacterBody3D" unique_id=112203827 instance=ExtResource("2_2wvic")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.3383174, 0)
-
-[node name="CollisionShape3D" type="CollisionShape3D" parent="CharacterBody3D" unique_id=988734649]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.8751645, 0)
-shape = SubResource("CapsuleShape3D_x4164")
-
-[node name="Camera3D" type="Camera3D" parent="CharacterBody3D" unique_id=2101474450]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.5245996, -1.1073185)
-
-[node name="CanvasLayer" type="CanvasLayer" parent="CharacterBody3D" unique_id=2073994331]
-
-[node name="Control" type="Control" parent="CharacterBody3D/CanvasLayer" unique_id=461987404]
+[node name="Control" type="Control" parent="Chose_host" unique_id=401132095]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="Host" type="Button" parent="Chose_host/Control" unique_id=737519380]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = -149.0
+offset_right = 199.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Host"
+
+[node name="Join" type="Button" parent="Chose_host/Control" unique_id=1206440217]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -201.0
+offset_top = 26.0
+offset_right = 199.0
+offset_bottom = 146.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Join
+"
+
+[node name="BackMenu" type="Button" parent="Chose_host/Control" unique_id=1673390422]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+text = "BACK"
+
+[node name="Join_data" type="CanvasLayer" parent="." unique_id=1381936730]
+visible = false
+
+[node name="Control" type="Control" parent="Join_data" unique_id=968814806]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="Join_data/Control" unique_id=1385322407]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -343.25
+offset_top = -161.5
+offset_right = 343.25
+offset_bottom = 161.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BackChose" type="Button" parent="Join_data/Control" unique_id=1066735002]
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+text = "BACK"
+
+[node name="IP" type="LineEdit" parent="Join_data/Control" unique_id=937498425]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -251.0
+offset_top = -124.0
+offset_right = 249.0
+offset_bottom = -74.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 0
+text = "127.0.0.1"
+placeholder_text = "ENTER IP"
+max_length = 10
+clear_button_enabled = true
+select_all_on_focus = true
+
+[node name="Port" type="LineEdit" parent="Join_data/Control" unique_id=1328128981]
+layout_mode = 0
+offset_left = 325.0
+offset_top = 300.0
+offset_right = 825.0
+offset_bottom = 350.0
+size_flags_vertical = 4
+text = "1487"
+placeholder_text = "ENTER PORT"
+max_length = 10
+clear_button_enabled = true
+select_all_on_focus = true
+
+[node name="Enter" type="Button" parent="Join_data/Control" unique_id=249514585]
+layout_mode = 0
+offset_left = 275.0
+offset_top = 400.0
+offset_right = 875.0
+offset_bottom = 450.0
+grow_horizontal = 2
+grow_vertical = 2
+size_flags_vertical = 8
+text = "ENTER"
+
+[node name="LobbyHUD" type="CanvasLayer" parent="." unique_id=967519933]
+visible = false
+
+[node name="Control" type="Control" parent="LobbyHUD" unique_id=924647518]
+layout_mode = 3
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -1152.0
+offset_top = -210.0
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Use" type="Button" parent="LobbyHUD/Control" unique_id=1520892599]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -125.00003
+offset_top = -102.0
+grow_horizontal = 0
+grow_vertical = 0
+text = "USE"
+
+[node name="Start" type="Button" parent="LobbyHUD/Control" unique_id=605654653]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -172.0
+offset_right = 172.0
+offset_bottom = 102.0
+grow_horizontal = 2
+text = "Start"
+
+[node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=461038242]
+spawn_path = NodePath("..")
+
+[connection signal="pressed" from="Chose_host/Control/Host" to="." method="_on_host_pressed"]
+[connection signal="pressed" from="Chose_host/Control/Join" to="." method="_on_join_pressed"]
+[connection signal="pressed" from="Chose_host/Control/BackMenu" to="." method="_on_back_menu_pressed"]
+[connection signal="pressed" from="Join_data/Control/BackChose" to="." method="_on_back_chose_pressed"]
+[connection signal="pressed" from="Join_data/Control/Enter" to="." method="_on_enter_pressed"]

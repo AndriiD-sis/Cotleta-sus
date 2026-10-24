@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://up01q58nw7bb"]
+
+[ext_resource type="PackedScene" uid="uid://us4hrwe6y3u5" path="res://models/main-map/Navigation/object/Navigation-panel3.glb" id="1_pixlp"]
+
+[node name="Navigation-panel3" unique_id=654685126 instance=ExtResource("1_pixlp")]
+
+[node name="Cylinder_006" parent="." index="0" unique_id=1134463444]
+transform = Transform3D(0.1, 0, 0, 0, 0.09396926, -0.034202013, 0, 0.034202013, 0.09396926, -0.70000005, 1.4493433, 1.2558023)

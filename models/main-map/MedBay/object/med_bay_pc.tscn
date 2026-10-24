@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://dsuhxk5uqnb8x"]
+
+[ext_resource type="PackedScene" uid="uid://7jiuxhdlg3st" path="res://models/main-map/MedBay/object/MedBay-pc.glb" id="1_07o3x"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ikle7"]
+points = PackedVector3Array(58.170624, -22.141335, 26.2417, -246.2085, -41.166275, -37.170616, -246.2085, 3.2093182, -37.170616, -246.2085, -3.1294317, 26.2417, 58.170624, 3.2093182, -37.170616, 58.170624, -41.166275, -37.170616, -246.2085, -34.823177, 13.55427, 58.170624, -3.1294317, 26.2417, 58.170624, -41.166275, -5.4644585, -246.2085, -22.141335, 26.2417, -246.2085, -41.166275, -5.4644585, -246.2085, 3.2093182, -24.483187, 58.170624, -34.823177, 13.55427, 58.170624, 3.2093182, -24.483187)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_efvpg"]
+points = PackedVector3Array(-328.63956, 66.63032, 13.559235, -265.23715, 15.905434, -37.170616, -284.2559, 15.905434, -30.819452, -309.62082, 15.905434, 7.2130375, -246.2085, 66.63032, -18.141956, -347.6682, 66.63032, -5.4644594, -265.23715, 66.63032, -37.170616, -347.6682, 15.905434, -5.4644594, -246.2085, 15.905434, -18.141956, -347.6682, 15.905434, 7.2130375, -244.18622, 67.64136, -31.577412, -245.00569, 15.3040905, -31.270267, -347.6682, 66.63032, 7.2130375, -334.98575, 15.905434, 13.559235, -252.55469, 15.905434, -37.170616, -309.62082, 66.63032, 7.2130375, -284.2559, 66.63032, -30.819452, -252.55469, 60.284744, -37.170616, -334.98575, 66.63032, 13.559235, -328.63956, 15.905434, 13.559235, -258.89096, 66.63032, -37.170616)
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tlnff"]
+points = PackedVector3Array(-246.2085, 3.2248306, -37.170616, 58.170624, 72.97155, -24.489395, 58.170624, 72.97155, -37.170616, -246.2085, 72.97155, -24.489395, 58.170624, 3.2248306, -24.489395, 58.170624, 3.2248306, -37.170616, -246.2085, 72.97155, -37.170616, -246.2085, 3.2248306, -24.489395)
+
+[node name="MedBay-pc" unique_id=2047645016 instance=ExtResource("1_07o3x")]
+
+[node name="Sphere_002" parent="." index="0" unique_id=1472044254]
+transform = Transform3D(-5.2453664e-10, 0, 0.03, 0, 0.03, 0, -0.012, 0, -1.3113416e-09, 1.7, 0.7, -1.9000001)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Sphere_002" index="0" unique_id=1080683182]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Sphere_002/StaticBody3D" index="0" unique_id=399039801]
+shape = SubResource("ConvexPolygonShape3D_ikle7")
+
+[node name="CollisionShape3D2" type="CollisionShape3D" parent="Sphere_002/StaticBody3D" index="1" unique_id=1617212827]
+shape = SubResource("ConvexPolygonShape3D_efvpg")
+
+[node name="CollisionShape3D3" type="CollisionShape3D" parent="Sphere_002/StaticBody3D" index="2" unique_id=519181187]
+shape = SubResource("ConvexPolygonShape3D_tlnff")

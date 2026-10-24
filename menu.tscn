@@ -1,5 +1,8 @@
 [gd_scene format=3 uid="uid://dqav4gmcox8j4"]
 
+[ext_resource type="Script" uid="uid://lcx6hf5a47d5" path="res://menu.gd" id="1_lti8b"]
+[ext_resource type="Texture2D" uid="uid://dddikiocm46si" path="res://icon.svg" id="2_ouk20"]
+
 [node name="Control" type="Control" unique_id=1918156980]
 layout_mode = 3
 anchors_preset = 15
@@ -7,11 +10,325 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_lti8b")
 
-[node name="Button" type="Button" parent="." unique_id=1808883289]
-layout_mode = 0
-offset_left = 467.0
-offset_top = 191.0
-offset_right = 678.35486
-offset_bottom = 308.0
+[node name="MeinMenu" type="CanvasLayer" parent="." unique_id=1159122924]
+
+[node name="Start" type="Button" parent="MeinMenu" unique_id=1808883289]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = -149.0
+offset_right = 200.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
 text = "START"
+
+[node name="Binds" type="Button" parent="MeinMenu" unique_id=1372072613]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -200.0
+offset_top = 26.0
+offset_right = 200.0
+offset_bottom = 145.99994
+grow_horizontal = 2
+grow_vertical = 2
+text = "BIINDS"
+
+[node name="BindList" type="CanvasLayer" parent="." unique_id=1215188829]
+visible = false
+
+[node name="BindPanel" type="PanelContainer" parent="BindList" unique_id=1418185889]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -350.0
+offset_top = -250.0
+offset_right = 350.0
+offset_bottom = 250.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="BindList/BindPanel" unique_id=1724288497]
+layout_mode = 2
+theme_override_constants/margin_left = 4
+theme_override_constants/margin_top = 4
+theme_override_constants/margin_right = 4
+theme_override_constants/margin_bottom = 4
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer" unique_id=671786738]
+layout_mode = 2
+theme_override_constants/separation = 4
+
+[node name="Header" type="HBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer" unique_id=976039658]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/Header" unique_id=1020977335]
+layout_mode = 2
+size_flags_horizontal = 2
+size_flags_vertical = 1
+theme_override_font_sizes/font_size = 30
+text = "BINDS"
+
+[node name="Close" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/Header" unique_id=1271049400]
+layout_mode = 2
+size_flags_horizontal = 10
+theme_override_font_sizes/font_size = 12
+text = "Close"
+
+[node name="Description" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer" unique_id=915440929]
+layout_mode = 2
+text = "Here is all game binds"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer" unique_id=1578097287]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="BindList" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer" unique_id=646238050]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+theme_override_constants/separation = 8
+
+[node name="Star" type="PanelContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList" unique_id=1577835115]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star" unique_id=281928691]
+layout_mode = 2
+
+[node name="ActionIcon" type="TextureRect" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star/HBoxContainer" unique_id=236258371]
+layout_mode = 2
+texture = ExtResource("2_ouk20")
+
+[node name="ActionInfo" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star/HBoxContainer" unique_id=488492617]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star/HBoxContainer/ActionInfo" unique_id=1419158526]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Start game"
+
+[node name="DescriptionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star/HBoxContainer/ActionInfo" unique_id=711703061]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Star main map game"
+
+[node name="Space" type="Control" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star/HBoxContainer" unique_id=955764132]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KeyButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star/HBoxContainer" unique_id=372550367]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 16
+text = "Enter"
+
+[node name="RebindButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Star/HBoxContainer" unique_id=1710574518]
+layout_mode = 2
+size_flags_vertical = 4
+text = "B"
+
+[node name="Item_use" type="PanelContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList" unique_id=813833157]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use" unique_id=543947180]
+layout_mode = 2
+
+[node name="ActionIcon" type="TextureRect" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use/HBoxContainer" unique_id=1095736868]
+layout_mode = 2
+texture = ExtResource("2_ouk20")
+
+[node name="ActionInfo" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use/HBoxContainer" unique_id=2014021169]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use/HBoxContainer/ActionInfo" unique_id=1973948293]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Use"
+
+[node name="DescriptionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use/HBoxContainer/ActionInfo" unique_id=753982509]
+layout_mode = 2
+size_flags_vertical = 2
+text = "Interaction with objects and tasks"
+
+[node name="Space" type="Control" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use/HBoxContainer" unique_id=60839266]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KeyButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use/HBoxContainer" unique_id=1413087129]
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_font_sizes/font_size = 16
+text = "E"
+
+[node name="RebindButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Item_use/HBoxContainer" unique_id=1019526893]
+layout_mode = 2
+size_flags_vertical = 4
+text = "B"
+
+[node name="Report" type="PanelContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList" unique_id=1827335491]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report" unique_id=1877338522]
+layout_mode = 2
+
+[node name="ActionIcon" type="TextureRect" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report/HBoxContainer" unique_id=1478839704]
+layout_mode = 2
+texture = ExtResource("2_ouk20")
+
+[node name="ActionInfo" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report/HBoxContainer" unique_id=1482367483]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report/HBoxContainer/ActionInfo" unique_id=1522837665]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Report"
+
+[node name="DescriptionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report/HBoxContainer/ActionInfo" unique_id=1368690195]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Report a body"
+
+[node name="Space" type="Control" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report/HBoxContainer" unique_id=1372376617]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KeyButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report/HBoxContainer" unique_id=20617202]
+layout_mode = 2
+size_flags_vertical = 4
+text = "R"
+
+[node name="RebindButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Report/HBoxContainer" unique_id=636985545]
+layout_mode = 2
+size_flags_vertical = 4
+text = "B"
+
+[node name="Kill" type="PanelContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList" unique_id=1904634631]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill" unique_id=1774257896]
+layout_mode = 2
+
+[node name="ActionIcon" type="TextureRect" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill/HBoxContainer" unique_id=2000565677]
+layout_mode = 2
+texture = ExtResource("2_ouk20")
+
+[node name="ActionInfo" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill/HBoxContainer" unique_id=524327261]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill/HBoxContainer/ActionInfo" unique_id=2009184393]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Kill"
+
+[node name="DescriptionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill/HBoxContainer/ActionInfo" unique_id=1640288680]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Kill a player"
+
+[node name="Space" type="Control" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill/HBoxContainer" unique_id=1802415833]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KeyButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill/HBoxContainer" unique_id=350099624]
+layout_mode = 2
+size_flags_vertical = 4
+text = "Q"
+
+[node name="RebindButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Kill/HBoxContainer" unique_id=1122236481]
+layout_mode = 2
+size_flags_vertical = 4
+text = "B"
+
+[node name="Sabotage" type="PanelContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList" unique_id=654098241]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage" unique_id=577411580]
+layout_mode = 2
+
+[node name="ActionIcon" type="TextureRect" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage/HBoxContainer" unique_id=1862470680]
+layout_mode = 2
+texture = ExtResource("2_ouk20")
+
+[node name="ActionInfo" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage/HBoxContainer" unique_id=227347053]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage/HBoxContainer/ActionInfo" unique_id=588557303]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Sabotage"
+
+[node name="DescriptionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage/HBoxContainer/ActionInfo" unique_id=1848536442]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Controlling ship systems"
+
+[node name="Space" type="Control" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage/HBoxContainer" unique_id=2136850518]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KeyButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage/HBoxContainer" unique_id=846297327]
+layout_mode = 2
+size_flags_vertical = 4
+text = "F"
+
+[node name="RebindButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Sabotage/HBoxContainer" unique_id=521866694]
+layout_mode = 2
+size_flags_vertical = 4
+text = "B"
+
+[node name="Vent" type="PanelContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList" unique_id=1115856574]
+layout_mode = 2
+
+[node name="HBoxContainer" type="HBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent" unique_id=158388724]
+layout_mode = 2
+
+[node name="ActionIcon" type="TextureRect" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent/HBoxContainer" unique_id=1526083335]
+layout_mode = 2
+texture = ExtResource("2_ouk20")
+
+[node name="ActionInfo" type="VBoxContainer" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent/HBoxContainer" unique_id=1358820167]
+layout_mode = 2
+
+[node name="ActionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent/HBoxContainer/ActionInfo" unique_id=37289889]
+layout_mode = 2
+size_flags_vertical = 6
+text = "Vent"
+
+[node name="DescriptionLabel" type="Label" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent/HBoxContainer/ActionInfo" unique_id=677449739]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 2
+text = "Controlling ship systems"
+
+[node name="Space" type="Control" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent/HBoxContainer" unique_id=520895687]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="KeyButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent/HBoxContainer" unique_id=1642358555]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "Space"
+
+[node name="RebindButton" type="Button" parent="BindList/BindPanel/MarginContainer/VBoxContainer/ScrollContainer/BindList/Vent/HBoxContainer" unique_id=1696071636]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 4
+text = "B"
+
+[connection signal="pressed" from="MeinMenu/Start" to="." method="_on_start_pressed"]
+[connection signal="pressed" from="MeinMenu/Binds" to="." method="_on_binds_pressed"]
+[connection signal="pressed" from="BindList/BindPanel/MarginContainer/VBoxContainer/Header/Close" to="." method="_on_close_pressed"]

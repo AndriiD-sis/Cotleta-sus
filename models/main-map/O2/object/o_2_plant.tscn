@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dh4kob72vwbg7"]
+
+[ext_resource type="PackedScene" uid="uid://befdxwavfw0ef" path="res://models/main-map/O2/object/O2-plant.glb" id="1_arioc"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_arioc"]
+points = PackedVector3Array(-1.0476191, -1.0470221, -0.38065407, -1.0476191, -1.0470221, 0.38065407, -0.9522505, 5.047022, -0.4760227, 0.38065407, -1.0470221, -1.0476191, 0.76151323, 5.047022, 0.76151323, 0.76151323, 5.047022, -0.76151323, 0.38065407, -1.0470221, 1.0476191, -0.4760227, 5.047022, 0.9522505, 1.0476191, -1.0470221, -0.38065407, -0.4760227, 5.047022, -0.9522505, -0.38065407, -1.0470221, -1.0476191, -0.38065407, -1.0470221, 1.0476191, -0.9522505, 5.047022, 0.4760227, 1.0476191, -1.0470221, 0.38065407, 0.9522505, 5.047022, -0.4760227, 0.4760227, 5.047022, -0.9522505, 0.4760227, 5.047022, 0.9522505, 0.9522505, 5.047022, 0.4760227, -0.76151323, 5.047022, -0.76151323, -0.76151323, 5.047022, 0.76151323)
+
+[node name="O2-plant" unique_id=582724103 instance=ExtResource("1_arioc")]
+
+[node name="Cylinder" parent="." index="0" unique_id=1158443816]
+transform = Transform3D(1.334, 0, 0, 0, 0.5, 0, 0, 0, 1.334, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cylinder" index="0" unique_id=1057165657]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D" index="0" unique_id=305304743]
+shape = SubResource("ConvexPolygonShape3D_arioc")

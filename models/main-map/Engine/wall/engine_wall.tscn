@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cda5okyfhmcdq"]
+
+[ext_resource type="PackedScene" uid="uid://ce1aq4ncwhuru" path="res://models/main-map/Engine/wall/Engine-wall.glb" id="1_n2ocs"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_oin5a"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Engine-wall" unique_id=1849898645 instance=ExtResource("1_n2ocs")]
+
+[node name="Cube" parent="." index="0" unique_id=1180368447]
+transform = Transform3D(0.1, 0, 0, 0, 2.5, 0, 0, 0, 3, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1770570131]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1096562115]
+shape = SubResource("ConvexPolygonShape3D_oin5a")

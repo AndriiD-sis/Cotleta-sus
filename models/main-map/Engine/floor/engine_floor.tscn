@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://b1q734jsyg12y"]
+
+[ext_resource type="PackedScene" uid="uid://dvr7tf1jickk0" path="res://models/main-map/Engine/floor/Engine-floor.glb" id="1_co3sd"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_co3sd"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Engine-floor" unique_id=515564737 instance=ExtResource("1_co3sd")]
+
+[node name="Cube" parent="." index="0" unique_id=1818109881]
+transform = Transform3D(1, 0, 0, 0, 0.1, 0, 0, 0, 1, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1324747810]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1502919326]
+shape = SubResource("ConvexPolygonShape3D_co3sd")

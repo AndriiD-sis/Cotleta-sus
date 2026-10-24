@@ -1,0 +1,17 @@
+[gd_scene format=3 uid="uid://cij2y2odgk0q5"]
+
+[ext_resource type="PackedScene" uid="uid://km87vhw218vu" path="res://models/main-map/Navigation/wall/Navigation-window.glb" id="1_yjtum"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_0opkg"]
+data = PackedVector3Array(-1, -1, 1, -1, 1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, -1, -1, 1, 1, -1, -1, 1, -1, -1, -1, -1, 1, -1, -1, 1, 1, -1, 1, -1, -1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, 1, 1, 1, -1, 1, -1, 1, 1, 1, 1, 1, 1, -1, 1, -1, -1, 1, -1, 1, 1, -1, -1, -1, 1, -1, 1, 1, -1, -1, -1, -1, -1, -1, -1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, -1, 1, -1, 1, 1, -1, 1, 1, 1, -1, 1, 1)
+
+[node name="Navigation-window" unique_id=1940294755 instance=ExtResource("1_yjtum")]
+
+[node name="Cube" parent="." index="0" unique_id=1905653180]
+transform = Transform3D(0.1, 0, 0, 0, 2, 0, 0, 0, 5, 0, 0, 0)
+rotation_edit_mode = 2
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=395337184]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1192025352]
+shape = SubResource("ConcavePolygonShape3D_0opkg")

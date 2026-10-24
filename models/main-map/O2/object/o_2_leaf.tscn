@@ -1,0 +1,16 @@
+[gd_scene format=3 uid="uid://dbs5j3j4jorku"]
+
+[ext_resource type="PackedScene" uid="uid://chyx7aj22kv1r" path="res://models/main-map/O2/object/O2-leaf.glb" id="1_xio03"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_xio03"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="O2-leaf" unique_id=1302007587 instance=ExtResource("1_xio03")]
+
+[node name="Cube" parent="." index="0" unique_id=56233524]
+transform = Transform3D(0.1, 0, 0, 0, 0.6, 0, 0, 0, 1, 0, 0, 0)
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1557057511]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=2029545300]
+shape = SubResource("ConvexPolygonShape3D_xio03")

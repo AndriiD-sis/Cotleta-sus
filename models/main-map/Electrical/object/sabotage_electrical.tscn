@@ -1,0 +1,13 @@
+[gd_scene format=3 uid="uid://c6ef5sahiymr"]
+
+[ext_resource type="PackedScene" uid="uid://dfqs54x0adk7n" path="res://models/main-map/Electrical/object/Sabotage-electrical.glb" id="1_ad8tk"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hbr0u"]
+points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[node name="Sabotage-electrical" unique_id=1720235300 instance=ExtResource("1_ad8tk")]
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Cube" parent_id_path=PackedInt32Array(326880567) index="0" unique_id=1875238677]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=797031835]
+shape = SubResource("ConvexPolygonShape3D_hbr0u")
