@@ -18,6 +18,9 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath(".:is_walking")
 properties/2/spawn = true
 properties/2/replication_mode = 2
+properties/3/path = NodePath(".:in_vent")
+properties/3/spawn = true
+properties/3/replication_mode = 2
 
 [node name="CharacterBody3D" type="CharacterBody3D" unique_id=1304741408]
 collision_layer = 2
@@ -32,7 +35,6 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.5368471, 0)
 
 [node name="Camera3D" type="Camera3D" parent="." unique_id=1161774877]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 4.241722, -1.2073183)
-current = true
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1286250913]
 replication_config = SubResource("SceneReplicationConfig_onrkg")

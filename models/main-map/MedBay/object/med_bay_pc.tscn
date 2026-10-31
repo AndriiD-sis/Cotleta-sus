@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://dsuhxk5uqnb8x"]
 
 [ext_resource type="PackedScene" uid="uid://7jiuxhdlg3st" path="res://models/main-map/MedBay/object/MedBay-pc.glb" id="1_07o3x"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_efvpg"]
+[ext_resource type="Script" uid="uid://ch78jl8tm764y" path="res://models/main-map/MedBay/object/med_pc.gd" id="3_tlnff"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ikle7"]
 points = PackedVector3Array(58.170624, -22.141335, 26.2417, -246.2085, -41.166275, -37.170616, -246.2085, 3.2093182, -37.170616, -246.2085, -3.1294317, 26.2417, 58.170624, 3.2093182, -37.170616, 58.170624, -41.166275, -37.170616, -246.2085, -34.823177, 13.55427, 58.170624, -3.1294317, 26.2417, 58.170624, -41.166275, -5.4644585, -246.2085, -22.141335, 26.2417, -246.2085, -41.166275, -5.4644585, -246.2085, 3.2093182, -24.483187, 58.170624, -34.823177, 13.55427, 58.170624, 3.2093182, -24.483187)
@@ -11,10 +13,13 @@ points = PackedVector3Array(-328.63956, 66.63032, 13.559235, -265.23715, 15.9054
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_tlnff"]
 points = PackedVector3Array(-246.2085, 3.2248306, -37.170616, 58.170624, 72.97155, -24.489395, 58.170624, 72.97155, -37.170616, -246.2085, 72.97155, -24.489395, 58.170624, 3.2248306, -24.489395, 58.170624, 3.2248306, -37.170616, -246.2085, 72.97155, -37.170616, -246.2085, 3.2248306, -24.489395)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_g8x0h"]
+radius = 4.0
+
 [node name="MedBay-pc" unique_id=2047645016 instance=ExtResource("1_07o3x")]
 
 [node name="Sphere_002" parent="." index="0" unique_id=1472044254]
-transform = Transform3D(-5.2453664e-10, 0, 0.03, 0, 0.03, 0, -0.012, 0, -1.3113416e-09, 1.7, 0.7, -1.9000001)
+transform = Transform3D(-5.2453664e-10, 0, 0.03, 0, 0.03, 0, -0.012, 0, -1.3113416e-09, 1.7, 0.7, -1.4000001)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Sphere_002" index="0" unique_id=1080683182]
 
@@ -26,3 +31,115 @@ shape = SubResource("ConvexPolygonShape3D_efvpg")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Sphere_002/StaticBody3D" index="2" unique_id=519181187]
 shape = SubResource("ConvexPolygonShape3D_tlnff")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1778801499 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_efvpg")
+task_ui = NodePath("../CanvasLayer/MedPC")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=418883659]
+shape = SubResource("SphereShape3D_g8x0h")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=967070421]
+layer = 100
+
+[node name="MedPC" type="Control" parent="CanvasLayer" index="0" unique_id=533218173]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_tlnff")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/MedPC" index="0" unique_id=1033236808]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -176.0
+offset_right = 300.0
+offset_bottom = 176.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TimeLabel" type="Label" parent="CanvasLayer/MedPC" index="1" unique_id=1496940691]
+layout_mode = 0
+offset_left = 276.0
+offset_top = 148.0
+offset_right = 416.0
+offset_bottom = 198.025
+
+[node name="B1" type="Button" parent="CanvasLayer/MedPC" index="2" unique_id=1520386048]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -103.5
+offset_top = -34.5
+offset_right = -34.5
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="B2" type="Button" parent="CanvasLayer/MedPC" index="3" unique_id=518019587]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -413.3999
+offset_top = -34.323975
+offset_right = -345.0
+offset_bottom = 34.323975
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="B3" type="Button" parent="CanvasLayer/MedPC" index="4" unique_id=1496224150]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -545.0
+offset_top = -34.0
+offset_right = -476.6001
+offset_bottom = 34.64798
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="B4" type="Button" parent="CanvasLayer/MedPC" index="5" unique_id=408075545]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -805.0
+offset_top = -34.0
+offset_right = -736.6001
+offset_bottom = 34.64798
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Start" type="Button" parent="CanvasLayer/MedPC" index="6" unique_id=1938361205]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -61.0
+offset_top = -206.0
+offset_right = 61.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "SEARCH"

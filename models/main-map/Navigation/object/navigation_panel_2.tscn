@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://bo0gihk08y34i"]
 
 [ext_resource type="PackedScene" uid="uid://cpw5o61d20257" path="res://models/main-map/Navigation/object/Navigation-panel2.glb" id="1_icue5"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_h2wys"]
+[ext_resource type="Script" uid="uid://cgmeoqwqfagux" path="res://models/main-map/Navigation/object/navigation.gd" id="3_b07ub"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_icue5"]
 points = PackedVector3Array(33.106415, 1.3105099, 3.8995998, 35.033775, 2.34832, -5.127124, 35.033775, -19.761013, -4.0738864, -4.973381, -2.9171467, -10.391354, -6.026413, -3.9689412, 9.608412, 35.033775, -16.599136, 6.448699, 35.033775, -3.9689412, -10.391354, -3.1751592, 0.3710447, 1.0407479, -3.920351, -16.599136, 6.448699, 35.033775, -5.0250645, 9.608412, -4.973381, -17.653095, -5.127124, 7.4909916, 1.1144954, 5.6852593, -3.1737266, -0.5843014, -9.467378, 33.101418, -1.5544903, 8.6671915, 33.639626, -0.3651331, -9.712286, 7.3180046, 1.3567532, -5.661117, -6.026413, -16.599136, -5.127124, -3.920351, -19.761013, -4.0738864, 35.033775, -17.653095, 5.3974195, -3.0322006, -0.6493268, 7.663507, -1.8142872, -15.547341, -6.1803613, 26.567066, 1.428008, 5.879248, 35.033775, -15.547341, -6.1803613, -6.026413, -5.0250645, -9.338116, -1.8142872, -3.9689412, -10.391354, -5.015993, -1.199955, -8.897793, -4.973381, -15.547341, 6.448699, -4.973381, -5.0250645, 9.608412, -4.3113337, -0.5050239, 4.913817, -2.9721239, -1.6225948, 8.58093, 33.255215, -0.53269523, 7.780109, -3.2326157, 0.40054637, -0.8692403)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_0c12g"]
 points = PackedVector3Array(53.481335, 6.42717, 19.044817, 35.915157, -18.846966, -3.3022833, 36.137238, -14.754199, -5.036491, 61.351833, -11.334906, 16.979322, 48.71834, 1.2921972, -6.1815987, 36.090004, -3.972445, 12.767609, 35.036354, 2.3451252, -4.075742, 51.368942, -9.701988, 22.025639, 60.298183, 7.609768, 9.607072, 45.56512, -18.705406, -4.075742, 46.739536, 3.6440046, 24.030674, 35.036354, -17.652477, 5.4023657, 44.51147, 6.556839, 18.030499, 35.898514, -0.17451365, -9.220547, 46.61877, 1.2921972, 25.40275, 45.56512, -3.972445, -9.338631, 53.981438, 7.609768, 6.453542, 58.266495, -7.9902124, 20.937845, 35.036354, 2.3451252, 4.3511896, 60.18213, 6.393155, 14.218393, 47.669846, -18.705406, -0.91520405, 59.244534, 2.3451252, 8.552391, 59.11116, -11.768809, 17.946348, 48.71834, 1.2921972, 25.40275, 54.337196, -9.852861, 22.629774, 43.460396, -0.81365967, 22.242212, 47.669846, -11.334906, -4.075742, 35.036354, -16.599548, 6.453542, 36.136578, -4.1483088, -8.896714, 35.036354, -5.0253735, 10.658248, 61.351833, 3.3980541, 11.712929, 48.71834, -0.81365967, -6.1815987)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 6.0
 
 [node name="Navigation-panel2" unique_id=2129975277 instance=ExtResource("1_icue5")]
 
@@ -20,3 +25,115 @@ shape = SubResource("ConvexPolygonShape3D_icue5")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Cylinder_006/StaticBody3D" index="1" unique_id=2098984609]
 shape = SubResource("ConvexPolygonShape3D_0c12g")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1963657560 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_h2wys")
+task_ui = NodePath("../CanvasLayer/Navigation")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=782604447]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=1027448594]
+layer = 100
+
+[node name="Navigation" type="Control" parent="CanvasLayer" index="0" unique_id=1289137758]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_b07ub")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Navigation" index="0" unique_id=1836714314]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -437.4028
+offset_top = -200.625
+offset_right = 437.4028
+offset_bottom = 200.625
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Ship" type="ColorRect" parent="CanvasLayer/Navigation" index="1" unique_id=556066142]
+layout_mode = 0
+offset_left = 156.0
+offset_top = 448.0
+offset_right = 196.0
+offset_bottom = 488.0
+color = Color(0.5281204, 0.606898, 0.8636545, 1)
+
+[node name="Point1" type="Button" parent="CanvasLayer/Navigation" index="2" unique_id=2003635307]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -352.0
+offset_top = 79.0
+offset_right = -288.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Point2" type="Button" parent="CanvasLayer/Navigation" index="3" unique_id=14329226]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -217.0
+offset_top = -9.0
+offset_right = -153.0
+offset_bottom = 55.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Point3" type="Button" parent="CanvasLayer/Navigation" index="4" unique_id=50003052]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -43.0
+offset_top = -63.0
+offset_right = 21.0
+offset_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Point4" type="Button" parent="CanvasLayer/Navigation" index="5" unique_id=2045881544]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 157.0
+offset_top = -28.0
+offset_right = 221.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Point5" type="Button" parent="CanvasLayer/Navigation" index="6" unique_id=1286752709]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 318.0
+offset_top = -123.0
+offset_right = 382.0
+offset_bottom = -59.0
+grow_horizontal = 2
+grow_vertical = 2

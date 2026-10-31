@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://b3lc6t7bunxyy" path="res://models/main-map/Diningroom/wall/diningroom_intakewindow.tscn" id="10_mcgcu"]
 [ext_resource type="PackedScene" uid="uid://1nhfw6drk6h5" path="res://models/main-map/Objects/object_trapdoorblend.tscn" id="11_ilgwd"]
 [ext_resource type="PackedScene" uid="uid://ty1f3t02ummj" path="res://models/main-map/Diningroom/object/Diningroom-text.glb" id="12_bi44y"]
+[ext_resource type="Script" uid="uid://crfik1pa6rk6b" path="res://interactable.gd" id="12_hpc47"]
 [ext_resource type="PackedScene" uid="uid://bk1c6nx6e87i2" path="res://models/main-map/Objects/task_trash.tscn" id="12_tgii8"]
 [ext_resource type="PackedScene" uid="uid://dbiabk8ewcqx6" path="res://models/main-map/Objects/task_electricalpanel.tscn" id="13_yljhu"]
 [ext_resource type="PackedScene" uid="uid://b87luw781waym" path="res://models/main-map/Diningroom/object/Diningroom-tray.glb" id="14_0ci7p"]
@@ -175,9 +176,14 @@
 [ext_resource type="PackedScene" uid="uid://d0m5mh7ym18mh" path="res://models/main-map/Reactor/object/reactor_pipe_4.tscn" id="171_hpc47"]
 [ext_resource type="PackedScene" uid="uid://bn8c3bjarrd65" path="res://models/main-map/Reactor/object/reactor_pipe_3.tscn" id="172_4doo2"]
 
-[node name="main-map" type="Node3D" unique_id=2030902719]
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 5.0
+
+[node name="main-map" type="Node3D" unique_id=2030902719 node_paths=PackedStringArray("crew_bar", "killer_bar")]
 script = ExtResource("1_1cljb")
 player_scene = ExtResource("2_t6ekw")
+crew_bar = NodePath("GameHUD/HUDS/CrewHUD/TaskBarCrew")
+killer_bar = NodePath("GameHUD/HUDS/KillerHUD/TaskBarKiller")
 
 [node name="Diningroom" type="Node3D" parent="." unique_id=1992107409]
 
@@ -572,6 +578,15 @@ transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.9, 2.4, 7.3)
 [node name="Diningroom-emergency" parent="Diningroom/object" unique_id=1628757536 instance=ExtResource("8_cyjlh")]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 1.15, 0)
 
+[node name="Area3D" type="Area3D" parent="Diningroom/object/Diningroom-emergency" unique_id=907718922 node_paths=PackedStringArray("target", "button")]
+collision_mask = 2
+script = ExtResource("12_hpc47")
+target = NodePath("..")
+button = NodePath("../../../../GameHUD/HUDS/Interective/Emergency")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Diningroom/object/Diningroom-emergency/Area3D" unique_id=1386764855]
+shape = SubResource("SphereShape3D_ycv45")
+
 [node name="Diningroom-text" parent="Diningroom/object" unique_id=1532174944 instance=ExtResource("12_bi44y")]
 transform = Transform3D(-0.18, 0, -2.7179246e-08, 0, 0.18, 0, 2.7179246e-08, 0, -0.18, -2.7, 1.1, -1.4)
 
@@ -585,7 +600,7 @@ transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22, 2.2999997, 10.6)
 
 [node name="Task-trash" parent="Diningroom/object" unique_id=1284174127 instance=ExtResource("12_tgii8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -22.8, 1.6, 4)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -21.8, 1.6, 4)
 
 [node name="Task-electricalpanel" parent="Diningroom/object" unique_id=1494562419 instance=ExtResource("13_yljhu")]
 transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 13.9, 2.3, 9.769)
@@ -764,10 +779,10 @@ rotation_edit_mode = 2
 transform = Transform3D(0.60952604, 0, -0.37123105, 0, 0.6, 0, 0.60952604, 0, 0.37123108, -0.75, 0.66, 2)
 
 [node name="MedBay-pc" parent="MedBay/object" unique_id=2047645016 instance=ExtResource("71_0yw5a")]
-transform = Transform3D(0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.64278764, 13.780688, 1.3, -14.676386)
+transform = Transform3D(0.64278764, 0, 0.76604444, 0, 1, 0, -0.76604444, 0, 0.64278764, 13.397666, 1.3, -14.99778)
 
 [node name="MedBay-scan" parent="MedBay/object" unique_id=51863324 instance=ExtResource("72_1j557")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 20.1, -3.225, -19.6)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 17.3, 0.07500023, -19.6)
 
 [node name="MedBay-wire" parent="MedBay/object" unique_id=1821101470 instance=ExtResource("23_1n6uu")]
 transform = Transform3D(-0.25881904, 0, 0.28977776, 0, 1, 0, -0.9659258, 0, -0.07764572, 15.400001, 0.14974084, -20.300001)
@@ -1330,7 +1345,7 @@ transform = Transform3D(-0.5, 0, 0, 0, 0, 1.95, 0, 0.5, 0, -19.9, 3.15, -20.8389
 rotation_edit_mode = 2
 
 [node name="Task-trash" parent="O2/object" unique_id=1952706420 instance=ExtResource("12_tgii8")]
-transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -20.733784, 1.6, -14.575204)
+transform = Transform3D(-0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, -0.70710677, -21.440891, 1.6, -15.2823105)
 
 [node name="O2-leaf" parent="O2/object" unique_id=1302007587 instance=ExtResource("37_jqnqq")]
 transform = Transform3D(-0.9063077, 0, 0.42261827, 0, 1, 0, -0.42261827, 0, -0.9063077, -24.90674, 0.90000004, -13.9675455)
@@ -1626,7 +1641,7 @@ rotation_edit_mode = 2
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -55.2, 2.3, -9.458)
 
 [node name="Navigation-panel" parent="Navigation/object" unique_id=500217556 instance=ExtResource("47_no6c3")]
-transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -64.3, 0.4, -19.75)
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -62.3, 0.4, -17.35)
 
 [node name="Navigation-panel2" parent="Navigation/object" unique_id=2129975277 instance=ExtResource("48_b5237")]
 transform = Transform3D(-0.70635796, 0, 0.37557724, 0, 0.9999999, 0, -0.3755772, 0, -0.706358, -58.52, 0.3, -9.699999)
@@ -2051,13 +2066,13 @@ rotation_edit_mode = 2
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -0.3, 2.3, -30.07978)
 
 [node name="Task-trash" parent="Storage/object" unique_id=700807291 instance=ExtResource("12_tgii8")]
-transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -10.4, 1.6, -51)
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -9.4, 1.6, -51)
 
 [node name="Storage-barrel" parent="Storage/object" unique_id=1852476636 instance=ExtResource("23_bsh3f")]
 transform = Transform3D(-0.48556715, 0, 0.119266696, 0, 0.5, 0, -0.119266696, 0, -0.48556715, 4.2000003, 1.2, -35)
 
 [node name="Storage-barrel2" parent="Storage/object" unique_id=584221885 instance=ExtResource("23_bsh3f")]
-transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 4.2000003, 1.2, -37)
+transform = Transform3D(0.35355332, 0, 0.35355347, 0, 0.5, 0, -0.35355347, 0, 0.35355332, 4.2000003, 1.2, -37)
 
 [node name="Storage-barrel3" parent="Storage/object" unique_id=1826512118 instance=ExtResource("23_bsh3f")]
 transform = Transform3D(-0.5, 0, -4.371139e-08, 0, 0.5, 0, 4.371139e-08, 0, -0.5, 4.2000003, 1.2, -39)
@@ -2079,6 +2094,12 @@ transform = Transform3D(0.40957603, 0, -0.28678823, 0, 0.5, 0, 0.28678823, 0, 0.
 
 [node name="Storage-cube5" parent="Storage/object" unique_id=74161064 instance=ExtResource("24_0ttrf")]
 transform = Transform3D(0.1690473, 0, -0.36252314, 0, 0.4, 0, 0.36252314, 0, 0.1690473, -1.65, 3.3, -39.7)
+
+[node name="Storage-cube6" parent="Storage/object" unique_id=847075577 instance=ExtResource("24_0ttrf")]
+transform = Transform3D(0.3213938, 0, -0.38302225, 0, 0.5, 0, 0.38302225, 0, 0.3213938, -3.75, 4.5, -42.9)
+
+[node name="Storage-cube7" parent="Storage/object" unique_id=2074666723 instance=ExtResource("24_0ttrf")]
+transform = Transform3D(0.1413385, -0.04690022, 0.2604299, -0.24116422, -0.14435612, 0.10488602, 0.10891825, -0.25876948, -0.10571247, -4.45, 5.8, -39.600002)
 
 [node name="Storage-gascan" parent="Storage/object" unique_id=958426601 instance=ExtResource("26_jao7d")]
 transform = Transform3D(0.19999999, 0, 0.34641019, 0, 0.4, 0, -0.34641019, 0, 0.19999999, -0.3, 0.9, -43.8)
@@ -2260,7 +2281,7 @@ transform = Transform3D(0, 0, 0.3, 0, 0.92, 0, -0.8, 0, 0, 8.4, 2.8, -23.900002)
 rotation_edit_mode = 2
 
 [node name="Electrical-elctricshield" parent="Electrical/object" unique_id=1914526639 instance=ExtResource("136_t7tun")]
-transform = Transform3D(0, 0, -0.3, 0, 0.3, 0, 0.4, 0, 0, 6.6, 3.25, -24.86)
+transform = Transform3D(0, 0, -0.3, 0, 0.4, 0, 0.4, 0, 0, 6.6, 3.25, -24.86)
 rotation_edit_mode = 2
 
 [node name="Electrical-pipe" parent="Electrical/object" unique_id=683365336 instance=ExtResource("137_nikg5")]
@@ -3140,7 +3161,7 @@ transform = Transform3D(0.14367762, 0.13306862, 0.020306924, 0.049264997, 0.0059
 transform = Transform3D(0.14792466, 0.13446614, 0.003047814, -0.0058507323, 0.015471723, -0.0996574, -0.13447703, 0.1472395, 0.007688415, 41.818817, 1.2740643, -9.297734)
 
 [node name="Security-wire20" parent="Security/object/wire" unique_id=790337071 instance=ExtResource("102_gdiv3")]
-transform = Transform3D(0.2, 0, 0, 0, 0, -0.3, 0, 0.2, 0, 40.358665, 1.8429766, -9.287823)
+transform = Transform3D(0.2, 0, 0, 0, 0, -0.31, 0, 0.2, 0, 40.358665, 1.8429766, -9.287823)
 rotation_edit_mode = 2
 
 [node name="Security-table" parent="Security/object" unique_id=1031169215 instance=ExtResource("138_rf46f")]
@@ -3972,6 +3993,9 @@ transform = Transform3D(0.29210478, 0, -0.06837255, 0, 0.29999998, 0, 0.06837255
 
 [node name="Communication-mouse" parent="Communication/object" unique_id=433074105 instance=ExtResource("78_vdgit")]
 transform = Transform3D(0.24620193, 0, -0.043412045, 0, 0.25, 0, 0.043412045, 0, 0.24620193, -11.803898, 1.6162885, -48.032566)
+
+[node name="Task-WiFi" parent="Communication/object" unique_id=1668345434 instance=ExtResource("6_131ww")]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -19.2, 2.3, -42.858)
 
 [node name="Shields" type="Node3D" parent="." unique_id=932136257]
 
@@ -6784,6 +6808,7 @@ rotation_edit_mode = 2
 transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -46.9, 2.3, -15.48)
 
 [node name="Light" type="Node3D" parent="." unique_id=1881478416]
+visible = false
 
 [node name="OmniLight3D" type="OmniLight3D" parent="Light" unique_id=973275887]
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 5, 9)
@@ -7034,16 +7059,16 @@ transform = Transform3D(-1, 0, 8.742278e-08, 0, 1, 0, -8.742278e-08, 0, -1, -4, 
 transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 4.6)
 
 [node name="Marker3D5" type="Marker3D" parent="SpawnPoints" unique_id=421833469]
-transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.79999995, 0, 3.4)
+transform = Transform3D(0.70710677, 0, 0.70710677, 0, 1, 0, -0.70710677, 0, 0.70710677, -0.6999999, 0, 3.5)
 
 [node name="Marker3D6" type="Marker3D" parent="SpawnPoints" unique_id=1941811191]
-transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -0.6999999, 0, -3.3000002)
+transform = Transform3D(-0.8660254, 0, 0.50000006, 0, 1, 0, -0.50000006, 0, -0.8660254, -0.5999999, 0, -3.4)
 
 [node name="Marker3D7" type="Marker3D" parent="SpawnPoints" unique_id=931538139]
-transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, -7.2999997, 0, -3.3000002)
+transform = Transform3D(-0.8660254, 0, -0.50000006, 0, 1, 0, 0.50000006, 0, -0.8660254, -7.3999996, 0, -3.4)
 
 [node name="Marker3D8" type="Marker3D" parent="SpawnPoints" unique_id=1394885247]
-transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -7.2, 0, 3.4)
+transform = Transform3D(0.70710677, 0, -0.70710677, 0, 1, 0, 0.70710677, 0, 0.70710677, -7.2999997, 0, 3.5)
 
 [node name="Players" type="Node3D" parent="." unique_id=281722769]
 
@@ -7191,5 +7216,157 @@ offset_right = 3.000061
 offset_bottom = 1.0
 metadata/_edit_use_anchors_ = true
 
+[node name="Interective" type="Control" parent="GameHUD/HUDS" unique_id=1985988391]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Emergency" type="Button" parent="GameHUD/HUDS/Interective" unique_id=1000136956]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -75.0
+offset_right = 100.0
+offset_bottom = 75.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "CALL"
+
+[node name="SabotageLayer" type="CanvasLayer" parent="." unique_id=615959592]
+layer = 200
+
+[node name="SabotageHUD" type="Control" parent="SabotageLayer" unique_id=891028476]
+visible = false
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="SabotageLayer/SabotageHUD" unique_id=1101442846]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -400.0
+offset_top = -200.0
+offset_right = 400.0
+offset_bottom = 200.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="SabotageLayer/SabotageHUD/PanelContainer" unique_id=1530839573]
+layout_mode = 2
+theme_override_constants/margin_left = 20
+theme_override_constants/margin_top = 20
+theme_override_constants/margin_right = 20
+theme_override_constants/margin_bottom = 20
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer" unique_id=433355575]
+layout_mode = 2
+theme_override_constants/separation = 50
+
+[node name="SabotageHeadr" type="HBoxContainer" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer" unique_id=745313543]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageHeadr" unique_id=872087307]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Sabotages"
+
+[node name="Space" type="Control" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageHeadr" unique_id=521939934]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Close" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageHeadr" unique_id=812184176]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+text = "Close"
+
+[node name="SabotageGrid" type="GridContainer" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer" unique_id=310093082]
+layout_mode = 2
+theme_override_constants/h_separation = 12
+columns = 4
+
+[node name="Electricity" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageGrid" unique_id=1455388044]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Electricity"
+
+[node name="O2" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageGrid" unique_id=1121171129]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "O2"
+
+[node name="Reactor" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageGrid" unique_id=4297093]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Reactor"
+
+[node name="Communications" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageGrid" unique_id=1361031050]
+layout_mode = 2
+theme_override_font_sizes/font_size = 25
+text = "Communications"
+
+[node name="DoorHeadr" type="HBoxContainer" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer" unique_id=511364858]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorHeadr" unique_id=747905116]
+layout_mode = 2
+theme_override_font_sizes/font_size = 35
+text = "Doors"
+
+[node name="DoorSeparator" type="HSeparator" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorHeadr" unique_id=711271036]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="DoorGrid" type="GridContainer" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer" unique_id=1260281979]
+layout_mode = 2
+theme_override_constants/h_separation = 10
+theme_override_constants/v_separation = 10
+columns = 6
+
+[node name="Cafeteria" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorGrid" unique_id=329941039]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Cafeteria"
+
+[node name="Security" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorGrid" unique_id=524636028]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Security"
+
+[node name="UpperEngine" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorGrid" unique_id=820462935]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "UpperEngine"
+
+[node name="LowerEngine2" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorGrid" unique_id=1255033682]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "LowerEngine2"
+
+[node name="Medbay" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorGrid" unique_id=1446703597]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Medbay"
+
+[node name="Storage" type="Button" parent="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/DoorGrid" unique_id=923747920]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+text = "Storage"
+
 [node name="MultiplayerSpawner" type="MultiplayerSpawner" parent="." unique_id=1427620495]
 spawn_path = NodePath("../Players")
+
+[connection signal="pressed" from="SabotageLayer/SabotageHUD/PanelContainer/MarginContainer/VBoxContainer/SabotageHeadr/Close" to="." method="_on_close_pressed"]

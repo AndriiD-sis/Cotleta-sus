@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://d2bu0i3u7enva"]
 
 [ext_resource type="PackedScene" uid="uid://dcwefrv7ohd5" path="res://models/main-map/Engine/object/Engine-gas.glb" id="1_j1s14"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_r7d8q"]
+[ext_resource type="Script" uid="uid://vm83jwr1ald7" path="res://models/main-map/Engine/object/gas.gd" id="3_dx26y"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_h7ssk"]
 points = PackedVector3Array(-35.05891, 68.1272, 73.23195, 10.318677, 68.01693, -35.3858, 5.2657332, 52.353977, -28.387154, 75.43848, 74.03044, 38.541985, -24.92966, 153.75713, 22.849586, 5.237881, 130.85399, 85.360214, 64.64249, 106.35031, -9.942562, -63.77217, 100.89168, 20.184471, 53.874477, 38.97966, 43.93813, -12.380789, 42.865368, 10.217823, -20.421877, 88.07582, 94.69791, 0.1924126, 154.3052, 58.365376, 29.597504, 87.51882, -39.614624, -46.66651, 132.99484, 10.598049, -61.64747, 77.74765, 48.432484, 69.35017, 103.32281, 20.493128, 8.033509, 38.97966, -20.721394, 0.24048148, 105.89138, 93.16523, -9.837096, 42.990997, 37.931545, 51.175484, 103.666885, -26.130993, -2.1392384, 152.45586, 32.802784, 10.322657, 42.675095, 50.630108, 70.04048, 60.55394, 43.93813, -59.487602, 83.4482, 27.89138, -32.85093, 149.19115, 17.697989, -30.775917, 80.30533, 89.69144, -61.04614, 111.09458, 15.109857, 10.130495, 137.65184, 74.50504, -54.119488, 72.50686, 64.002426, 13.4315, 60.55394, -36.896362, 69.134834, 93.49165, 35.25689, -4.5868244, 115.59617, 91.786674)
@@ -10,6 +12,9 @@ points = PackedVector3Array(10.74042, 36.2825, -7.2720623, -5.426637, -12.236084
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dx26y"]
 points = PackedVector3Array(-10.819614, 14.719568, 3.5144196, -10.819614, 14.719568, 11.601906, -10.819614, 38.979652, 14.297734, 5.359581, 36.281975, 46.643196, 10.748601, 38.979652, 3.5144196, 32.30468, 22.81022, 27.767908, 16.137619, 25.505522, 3.5144196, 29.610168, 25.505522, 38.55571, -5.424526, 38.979652, 38.55571, 51.178383, 38.979652, 41.251537, -2.1617572, 13.443702, 1.1044494, 48.477806, 33.5843, 46.643196, -10.819614, 25.505522, 3.5144196, 13.4431095, 38.979652, 49.339024, -8.119036, 14.719568, 14.297734, 32.30468, 22.81022, 33.16405, 13.4431095, 36.281975, 49.339024, -5.2325063, 37.742348, 5.8515477, 45.783295, 38.979652, 49.339024, -10.819614, 36.281975, 22.389706, 51.178383, 36.281975, 41.251537, -5.424526, 36.281975, 38.55571, 18.838198, 22.81022, 8.906076, 16.137619, 28.193697, 3.5144196, 43.088783, 28.193697, 41.251537, 24.22115, 20.11492, 19.689392, -2.7300167, 14.719568, 14.297734, -8.119036, 36.281975, 33.16405, -10.819614, 20.11492, 16.998049, 45.783295, 36.281975, 49.339024, 24.22115, 28.193697, 41.251537, 51.178383, 36.281975, 46.643196)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 6.0
 
 [node name="Engine-gas" unique_id=844124580 instance=ExtResource("1_j1s14")]
 
@@ -23,3 +28,81 @@ shape = SubResource("ConvexPolygonShape3D_r7d8q")
 
 [node name="CollisionShape3D3" type="CollisionShape3D" parent="Cylinder_001/StaticBody3D" index="2" unique_id=657799877]
 shape = SubResource("ConvexPolygonShape3D_dx26y")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=39467479 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_r7d8q")
+task_ui = NodePath("../CanvasLayer/Gas")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1120923837]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=294149372]
+layer = 100
+
+[node name="Gas" type="Control" parent="CanvasLayer" index="0" unique_id=225193033]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_dx26y")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Gas" index="0" unique_id=146213792]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.0
+offset_top = -214.5
+offset_right = 100.0
+offset_bottom = 214.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Panel2" type="Panel" parent="CanvasLayer/Gas" index="1" unique_id=134980716]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 229.0
+offset_top = 15.0
+offset_right = 358.0
+offset_bottom = 144.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="ProgressBar" type="ProgressBar" parent="CanvasLayer/Gas" index="2" unique_id=1863128490]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -67.9375
+offset_top = -183.2461
+offset_right = 67.9375
+offset_bottom = 183.2461
+grow_horizontal = 2
+grow_vertical = 2
+fill_mode = 3
+
+[node name="Fill" type="Button" parent="CanvasLayer/Gas" index="3" unique_id=1098651574]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 248.0
+offset_top = 34.0
+offset_right = 339.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "FILL"

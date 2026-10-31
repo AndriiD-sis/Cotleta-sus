@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://cg31h8vag867h"]
 
 [ext_resource type="PackedScene" uid="uid://ck6d3djt1tugi" path="res://models/main-map/Electrical/object/Electrical-elctricshield.glb" id="1_x7es3"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_w0dvm"]
+[ext_resource type="Script" uid="uid://bd84ly3qid23h" path="res://models/main-map/Electrical/object/electrical_shield.gd" id="3_fmpue"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hfhr1"]
 points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 7.0
 
 [node name="Electrical-elctricshield" unique_id=1914526639 instance=ExtResource("1_x7es3")]
 
@@ -11,3 +16,122 @@ points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=706507363]
 shape = SubResource("ConvexPolygonShape3D_hfhr1")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=914586306 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_w0dvm")
+task_ui = NodePath("../CanvasLayer/ElectricalShield")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1967704748]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=777354059]
+layer = 100
+
+[node name="ElectricalShield" type="Control" parent="CanvasLayer" index="0" unique_id=825195685]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_fmpue")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/ElectricalShield" index="0" unique_id=1471885966]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -193.25
+offset_top = -233.75
+offset_right = 193.25
+offset_bottom = 233.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider" type="HSlider" parent="CanvasLayer/ElectricalShield" index="1" unique_id=1703568534]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -8.0
+offset_right = 139.0
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Green" type="Panel" parent="CanvasLayer/ElectricalShield" index="2" unique_id=448144589]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -477.0
+offset_top = -20.0
+offset_right = -437.0
+offset_bottom = 20.0
+grow_horizontal = 0
+grow_vertical = 2
+rotation = 1.5707964
+
+[node name="HSlider2" type="HSlider" parent="CanvasLayer/ElectricalShield" index="3" unique_id=1410799099]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = -143.0
+offset_right = 139.0
+offset_bottom = -127.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Green2" type="Panel" parent="CanvasLayer/ElectricalShield" index="4" unique_id=1167156682]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -155.0
+offset_right = 20.0
+offset_bottom = -115.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HSlider3" type="HSlider" parent="CanvasLayer/ElectricalShield" index="5" unique_id=1372197730]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -139.0
+offset_top = 127.0
+offset_right = 139.0
+offset_bottom = 143.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Green3" type="Panel" parent="CanvasLayer/ElectricalShield" index="6" unique_id=967530643]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -80.0
+offset_top = 115.0
+offset_right = -40.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2

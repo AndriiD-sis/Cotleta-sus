@@ -1,12 +1,17 @@
 [gd_scene format=3 uid="uid://bpd2nh5xre4uv"]
 
 [ext_resource type="PackedScene" uid="uid://dfm0un3k03rsm" path="res://models/main-map/Admin/object/Admin-table3.glb" id="1_r7ujs"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_20se4"]
+[ext_resource type="Script" uid="uid://b4la8a4whrudm" path="res://models/main-map/Admin/object/card_task.gd" id="3_14p2g"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_r7ujs"]
 points = PackedVector3Array(-0.39999998, 1.1460985, 0.95504665, -1, -0.95448184, -1.4446768, -1, 1.0622956, -1.4446768, -0.39999998, -0.96379316, -1.4553142, -1, -0.95448184, 0.94467676, -0.35126138, -1, 0.99667716, -0.39999998, 1.0707241, -1.4550467, -1, 1.1370213, 0.94467676, -0.35789463, 0.7786038, -0.74638885, -0.3503784, 0.98987556, 1, -0.35126138, -1, -0.9901459, -0.39999998, 1.1460985, -0.9654301, -1, 1.1370213, -0.9592735, -0.36141098, 0.9600288, -0.4009715, -0.36386877, 0.39110723, -0.9619783)
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_2uort"]
 points = PackedVector3Array(-0.31243032, 0.5393738, -0.9168747, 0.9907408, 0.98412704, 1, 0.97597194, 0.9619737, -0.39119262, 0.9907408, -1, 1, -0.33201057, 0.98412704, 1, -0.33201057, -1, -0.98412704, 0.9907408, -1, -0.98412704, -0.33201057, -1, 1, 0.97596425, 0.39118788, -0.9619623, -0.3172417, 0.9619737, -0.39119262, 0.9774136, 0.8115125, -0.6971398, -0.31723404, 0.39118788, -0.9619623, -0.31868336, 0.8115125, -0.6971398, 0.9774047, 0.69713014, -0.81150126, -0.3124593, 0.91691643, -0.53939855, 0.9711895, 0.91691643, -0.53939855, 0.97116053, 0.5393738, -0.9168747, -0.3186745, 0.69713014, -0.81150126)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 3.0
 
 [node name="Admin-table3" unique_id=1551053140 instance=ExtResource("1_r7ujs")]
 
@@ -17,3 +22,79 @@ shape = SubResource("ConvexPolygonShape3D_r7ujs")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Cube_002/StaticBody3D" index="1" unique_id=1231325161]
 shape = SubResource("ConvexPolygonShape3D_2uort")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=414625562 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_20se4")
+task_ui = NodePath("../CanvasLayer/CardTask")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=2053672177]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=1213099802]
+layer = 100
+
+[node name="CardTask" type="Control" parent="CanvasLayer" index="0" unique_id=1844546627]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_14p2g")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/CardTask" index="0" unique_id=1341381428]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -419.5
+offset_top = -160.5
+offset_right = 419.5
+offset_bottom = 160.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Slot" type="ColorRect" parent="CanvasLayer/CardTask" index="1" unique_id=1019263148]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -329.0
+offset_top = -110.0
+offset_right = 329.0
+offset_bottom = -100.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="EndMark" type="ColorRect" parent="CanvasLayer/CardTask" index="2" unique_id=1593801843]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -287.0
+offset_top = -125.0
+offset_right = -247.0
+offset_bottom = -85.0
+grow_horizontal = 0
+grow_vertical = 2
+color = Color(0, 0, 0, 1)
+
+[node name="Card" type="Button" parent="CanvasLayer/CardTask" index="3" unique_id=2101442211]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 247.0
+offset_top = -140.0
+offset_right = 387.0
+offset_bottom = -70.0
+grow_vertical = 2
+text = "CARD
+"

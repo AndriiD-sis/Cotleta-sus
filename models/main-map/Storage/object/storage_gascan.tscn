@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://cyglpufjgc3ti"]
 
 [ext_resource type="PackedScene" uid="uid://hx4trxfou6jc" path="res://models/main-map/Storage/object/Storage-gascan.glb" id="1_7noyl"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_ksyjd"]
+[ext_resource type="Script" uid="uid://c3nsuwptibem6" path="res://models/main-map/Storage/object/gas_can.gd" id="3_sgotm"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_hkybe"]
 points = PackedVector3Array(5.8732953, -2.3758423, 1.5491643, -6.0294375, -19.34047, 7.054952, -4.170153, -19.283342, 7.0335393, 0.4003247, -10.129263, -11.713149, -5.9519243, -1.9531615, 2.917799, 3.6562839, -9.692899, 17.752241, 5.1036205, -19.549576, 9.475948, -7.7154093, -9.7410145, 17.78512, 0.95367754, 3.5880165, 1.9307394, 7.467257, -11.1195345, -8.3531885, -4.247137, -11.100459, -9.21217, -1.5206355, -0.8723755, -5.9998817, 3.4311914, -1.8640914, -6.493411, 4.421877, -10.78022, -11.450438, -6.6038046, -19.542948, 9.005597, -5.5489984, -2.3507814, -2.1179197, -1.5206355, 3.5880165, 1.9307394, 3.2254918, -8.76946, 17.894861, -0.53155047, -7.812057, -11.943968, -7.8122997, -8.303259, 13.86894, 4.421877, -8.303259, -11.943968, 5.9387875, -1.8514849, -1.2288934, 4.6694984, -19.626383, 9.993643, 5.006404, -19.346622, 7.9768186, -7.931671, -8.7649765, 16.821589, 5.412601, -1.923853, 3.368933, 3.2555325, -10.188462, 18.023083, -1.5206355, 3.5880165, 0.44083786, -1.026093, 3.0921593, 2.917799, 5.415648, -18.334934, 7.9314938, -3.7503972, -11.538418, -9.104505, -5.678058, -19.56519, 9.485054)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 6.0
 
 [node name="Storage-gascan" unique_id=958426601 instance=ExtResource("1_7noyl")]
 
@@ -14,3 +19,80 @@ rotation_edit_mode = 2
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cylinder/StaticBody3D" index="0" unique_id=1546153986]
 shape = SubResource("ConvexPolygonShape3D_hkybe")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=245148692 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_ksyjd")
+task_ui = NodePath("../CanvasLayer/GasCan")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1054663048]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=134367789]
+layer = 100
+
+[node name="GasCan" type="Control" parent="CanvasLayer" index="0" unique_id=1441083377]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_sgotm")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/GasCan" index="0" unique_id=735943903]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -227.125
+offset_top = -178.25
+offset_right = 227.125
+offset_bottom = 178.25
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="LeftFlask" type="ProgressBar" parent="CanvasLayer/GasCan" index="1" unique_id=944467984]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -191.0
+offset_top = -148.5
+offset_right = -109.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="RightFlask" type="ProgressBar" parent="CanvasLayer/GasCan" index="2" unique_id=2080723105]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 109.0
+offset_top = -148.5
+offset_right = 191.0
+offset_bottom = 148.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Pour" type="Button" parent="CanvasLayer/GasCan" index="3" unique_id=1746189085]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -45.907227
+offset_top = -209.0
+offset_right = 45.907227
+offset_bottom = -145.75
+grow_horizontal = 2
+grow_vertical = 0
+text = "Pour"

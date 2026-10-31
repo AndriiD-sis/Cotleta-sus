@@ -1,16 +1,85 @@
 [gd_scene format=3 uid="uid://dbiabk8ewcqx6"]
 
 [ext_resource type="PackedScene" uid="uid://biqvwrgp07tq5" path="res://models/main-map/Objects/Task-electricalpanel.glb" id="1_ep4re"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_bmcfn"]
+[ext_resource type="Script" uid="uid://do4ygkb5tmfsa" path="res://electricalpanel.gd" id="3_3xotk"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ybp30"]
 points = PackedVector3Array(-1, -1, -1, 1, 1, 1, 1, -1, 1, 1, 1, -1, -1, 1, 1, 1, -1, -1, -1, -1, 1, -1, 1, -1)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 3.0
+
 [node name="Task-electricalpanel" unique_id=1494562419 instance=ExtResource("1_ep4re")]
 
-[node name="Cube" parent="." index="0" unique_id=1378632447]
+[node name="Cube" parent="." index="0" unique_id=1327929415]
 transform = Transform3D(0.081, 0, 0, 0, 0.7, 0, 0, 0, 0.98, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=458545808]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1394361164]
 shape = SubResource("ConvexPolygonShape3D_ybp30")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1412889341 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_bmcfn")
+task_ui = NodePath("../CanvasLayer/Electricalpanel")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1615474665]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=2060424692]
+layer = 100
+
+[node name="Electricalpanel" type="Control" parent="CanvasLayer" index="0" unique_id=1933165490]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_3xotk")
+
+[node name="PanelContainer" type="Panel" parent="CanvasLayer/Electricalpanel" index="0" unique_id=130151049]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -220.5
+offset_top = -220.5
+offset_right = 220.5
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="HBoxContainer" type="VBoxContainer" parent="CanvasLayer/Electricalpanel" index="1" unique_id=1699763704]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.25
+offset_top = -169.5
+offset_right = 56.25
+offset_bottom = 169.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Electricalpanel/HBoxContainer" index="0" unique_id=271182250]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button2" type="Button" parent="CanvasLayer/Electricalpanel/HBoxContainer" index="1" unique_id=1328604304]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button3" type="Button" parent="CanvasLayer/Electricalpanel/HBoxContainer" index="2" unique_id=2056593966]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Button4" type="Button" parent="CanvasLayer/Electricalpanel/HBoxContainer" index="3" unique_id=1812939713]
+layout_mode = 2
+size_flags_vertical = 3

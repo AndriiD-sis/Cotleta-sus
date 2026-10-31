@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://dvlvoclkj6m04"]
 
 [ext_resource type="PackedScene" uid="uid://t0th7eiyycck" path="res://models/main-map/Reactor/object/Reactor-memory.glb" id="1_duj7n"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_ca8o8"]
+[ext_resource type="Script" uid="uid://s0lwx1k12tkv" path="res://models/main-map/Reactor/object/memory.gd" id="3_yqqwi"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_dgdc4"]
 points = PackedVector3Array(0.9394937, 0.5151266, -0.9698735, -0.8787571, 0.9696893, 0.9696893, -0.8787571, 0.9696893, -0.9696893, -1, -1, 1, 1, -1, 1, -1, -1, -1, 1, -1, -1, 1, 0.4998042, 1, -1, 1, -1, -1, 1, 1, 1, 0.4998042, -1)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 3.0
 
 [node name="Reactor-memory" unique_id=9899724 instance=ExtResource("1_duj7n")]
 
@@ -11,3 +16,144 @@ points = PackedVector3Array(0.9394937, 0.5151266, -0.9698735, -0.8787571, 0.9696
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1012426187]
 shape = SubResource("ConvexPolygonShape3D_dgdc4")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1011604892 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_ca8o8")
+task_ui = NodePath("../CanvasLayer/Memory")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=534153496]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=1206235529]
+layer = 100
+
+[node name="Memory" type="Control" parent="CanvasLayer" index="0" unique_id=7042906]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_yqqwi")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Memory" index="0" unique_id=959171914]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -190.0625
+offset_top = -190.0625
+offset_right = 190.0625
+offset_bottom = 190.0625
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Memory" index="1" unique_id=881325773]
+layout_mode = 0
+offset_left = 396.75
+offset_top = 144.75
+offset_right = 510.25
+offset_bottom = 258.25
+
+[node name="Button2" type="Button" parent="CanvasLayer/Memory" index="2" unique_id=93068126]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -56.75
+offset_top = 144.75
+offset_right = 56.75
+offset_bottom = 258.25
+grow_horizontal = 2
+
+[node name="Button3" type="Button" parent="CanvasLayer/Memory" index="3" unique_id=1381911777]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -510.25
+offset_top = 144.75
+offset_right = -396.75
+offset_bottom = 258.25
+grow_horizontal = 0
+
+[node name="Button4" type="Button" parent="CanvasLayer/Memory" index="4" unique_id=1081916847]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -510.25
+offset_top = -56.75
+offset_right = -396.75
+offset_bottom = 56.75
+grow_horizontal = 0
+grow_vertical = 2
+
+[node name="Button5" type="Button" parent="CanvasLayer/Memory" index="5" unique_id=3342036]
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -510.25
+offset_top = -258.25
+offset_right = -396.75
+offset_bottom = -144.75
+grow_horizontal = 0
+grow_vertical = 0
+
+[node name="Button6" type="Button" parent="CanvasLayer/Memory" index="6" unique_id=649661883]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -56.75
+offset_top = -258.25
+offset_right = 56.75
+offset_bottom = -144.75
+grow_horizontal = 2
+grow_vertical = 0
+
+[node name="Button7" type="Button" parent="CanvasLayer/Memory" index="7" unique_id=1367126523]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 396.75
+offset_top = -258.25
+offset_right = 510.25
+offset_bottom = -144.75
+grow_vertical = 0
+
+[node name="Button8" type="Button" parent="CanvasLayer/Memory" index="8" unique_id=2019861798]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 396.75
+offset_top = -56.75
+offset_right = 510.25
+offset_bottom = 56.75
+grow_vertical = 2
+
+[node name="Button9" type="Button" parent="CanvasLayer/Memory" index="9" unique_id=1733408924]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -56.75
+offset_top = -56.75
+offset_right = 56.75
+offset_bottom = 56.75
+grow_horizontal = 2
+grow_vertical = 2

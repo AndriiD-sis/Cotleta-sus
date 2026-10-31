@@ -1,16 +1,29 @@
 [gd_scene format=3 uid="uid://1nhfw6drk6h5"]
 
 [ext_resource type="PackedScene" uid="uid://djgn7vupj1k8v" path="res://models/main-map/Objects/Object-trapdoorblend.glb" id="1_qh2id"]
+[ext_resource type="Script" uid="uid://ca2nvqhsryevx" path="res://models/main-map/Objects/vent.gd" id="2_wqenm"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_aogdl"]
 points = PackedVector3Array(-0.95338476, -0.98421377, -0.8919196, 0.95338476, 0.98421377, 0.8919196, 0.95338476, 0.98421377, -0.8919196, -0.9840524, 0.9840524, 0.9840524, 0.9840524, -0.9840524, 0.9840524, -0.9577637, 0.9577637, -0.9577637, 0.9577637, -0.9577637, -0.9577637, -0.9577637, -0.9577637, 0.9577637, 0.9840524, 0.9840524, -0.9840524, -0.95338476, -0.8919196, -0.98421377, 0.98421377, 0.8919196, 0.95338476, -0.98421377, -0.95338476, -0.8919196, 0.891727, 0.95338476, 0.98421377, -0.98421377, 0.8919196, -0.95338476, 0.891727, -0.95338476, -0.98421377, 0.98421377, -0.8919196, -0.95338476, -0.95338476, 0.98421377, -0.8919196, -0.8919196, -0.95338476, 0.98421377, 0.891727, -0.98421377, -0.95338476, -0.95338476, -0.98421377, 0.8919196, -0.98421377, -0.8919196, 0.95338476, -0.8919196, 0.95338476, -0.98421377, -0.8919196, -0.98421377, -0.95338476, 0.95338476, -0.98421377, -0.8919196, 0.95338476, -0.8919196, -0.98421377, 0.98421377, -0.95338476, -0.8919196, -0.8919196, -0.98421377, 0.95338476, -0.98421377, 0.95338476, -0.8919196, -0.95338476, -0.8919196, 0.98421377, -0.8919196, 0.98421377, -0.95338476, 0.95338476, 0.8919196, 0.98421377, 0.98421377, 0.95338476, 0.8919196)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 1.0
+
 [node name="Object-trapdoorblend" unique_id=1169573827 instance=ExtResource("1_qh2id")]
 
-[node name="Cube" parent="." index="0" unique_id=121649728]
+[node name="Cube" parent="." index="0" unique_id=1838452804]
 transform = Transform3D(0.7, 0, 0, 0, 0.07, 0, 0, 0, 0.98, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=1171907005]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1417088157]
 shape = SubResource("ConvexPolygonShape3D_aogdl")
+
+[node name="StandPoint" type="Marker3D" parent="." index="1" unique_id=519885538]
+
+[node name="Area3D" type="Area3D" parent="." index="2" unique_id=1018346641]
+collision_mask = 2
+script = ExtResource("2_wqenm")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=55235112]
+shape = SubResource("SphereShape3D_ycv45")

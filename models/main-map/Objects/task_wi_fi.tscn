@@ -1,16 +1,85 @@
 [gd_scene format=3 uid="uid://dw8rvkok7xmxc"]
 
 [ext_resource type="PackedScene" uid="uid://dc1ca1oh8f5be" path="res://models/main-map/Objects/Task-WiFi.glb" id="1_ea5b4"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_sq16l"]
+[ext_resource type="Script" uid="uid://cer3sewesn3g" path="res://models/main-map/Objects/wi_fi.gd" id="3_uuxsc"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_ncuyv"]
 points = PackedVector3Array(-0.95805436, -0.98903435, -0.95805436, 0.95804274, 0.9890223, 0.95804274, 0.95804274, 0.95804274, 0.9890223, 0.98903435, -0.95805436, -0.95805436, -0.95805436, 0.98903435, -0.95805436, -0.95805436, -0.95805436, 0.98903435, -0.9890223, 0.95804274, 0.95804274, 0.95804274, -0.9890223, 0.95804274, 0.95804274, 0.95804274, -0.9890223, -0.95805436, -0.95805436, -0.98903435, -0.98903435, -0.95805436, -0.95805436, 0.9890223, 0.95804274, 0.95804274, 0.95805436, -0.95805436, 0.98903435, 0.98903435, 0.95805436, -0.95805436, -0.95805436, 0.98903435, 0.95805436, 0.95805436, -0.98903435, -0.95805436, -0.95805436, 0.95805436, -0.98903435, -0.98903435, -0.95805436, 0.95805436, 0.95804274, -0.95804274, -0.9890223, -0.9890223, 0.95804274, -0.95804274, -0.95804274, -0.9890223, 0.95804274, -0.95804274, 0.95804274, 0.9890223, 0.9890223, -0.95804274, 0.95804274, 0.95804274, 0.9890223, -0.95804274)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 3.0
+
 [node name="Task-WiFi" unique_id=1870366820 instance=ExtResource("1_ea5b4")]
 
-[node name="Cube" parent="." index="0" unique_id=1629581789]
+[node name="Cube" parent="." index="0" unique_id=1995188347]
 transform = Transform3D(0.06, 0, 0, 0, 0.6, 0, 0, 0, 0.84, 0, 0, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube" index="0" unique_id=147001084]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=195193653]
 shape = SubResource("ConvexPolygonShape3D_ncuyv")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1563556430 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_sq16l")
+task_ui = NodePath("../CanvasLayer/WiFi")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1915503089]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=1256840048]
+layer = 100
+
+[node name="WiFi" type="Control" parent="CanvasLayer" index="0" unique_id=926223319]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_uuxsc")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/WiFi" index="0" unique_id=663630408]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -278.75
+offset_top = -220.5
+offset_right = 278.75
+offset_bottom = 220.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ProgressDownload" type="ProgressBar" parent="CanvasLayer/WiFi" index="1" unique_id=1484157145]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -209.25
+offset_top = -20.75
+offset_right = 209.25
+offset_bottom = 20.75
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Download" type="Button" parent="CanvasLayer/WiFi" index="2" unique_id=1635010906]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.0
+offset_top = 115.0
+offset_right = 40.0
+offset_bottom = 155.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "DOWNLOAD"

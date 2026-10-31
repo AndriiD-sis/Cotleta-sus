@@ -1,8 +1,110 @@
 [gd_scene format=3 uid="uid://s5mkdex7dgq6"]
 
 [ext_resource type="PackedScene" uid="uid://fo55sltb6qrr" path="res://models/main-map/Weapon/object/Weapon-chair.glb" id="1_mfwsi"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_w4rdc"]
+[ext_resource type="Script" uid="uid://ck8j1g4ox72kr" path="res://models/main-map/Weapon/object/asteroid.gd" id="3_gmg4x"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 3.0
 
 [node name="Weapon-chair" unique_id=744031102 instance=ExtResource("1_mfwsi")]
 
 [node name="Cube_002" parent="." index="0" unique_id=177435017]
 transform = Transform3D(0.5, 0, 0, 0, 0.286, 0, 0, 0, 0.5, 0, -0.5, 0)
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1781686726 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_w4rdc")
+task_ui = NodePath("../CanvasLayer/Asteroid")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=73058816]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=1845238015]
+layer = 100
+
+[node name="Asteroid" type="Control" parent="CanvasLayer" index="0" unique_id=558735288]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_gmg4x")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Asteroid" index="0" unique_id=1429208325]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -415.625
+offset_top = -209.5
+offset_right = 415.625
+offset_bottom = 209.5
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Button" type="Button" parent="CanvasLayer/Asteroid" index="1" unique_id=555561114]
+layout_mode = 0
+offset_left = 209.0
+offset_top = 156.0
+offset_right = 337.0
+offset_bottom = 284.0
+
+[node name="Button2" type="Button" parent="CanvasLayer/Asteroid" index="2" unique_id=1207442904]
+layout_mode = 0
+offset_left = 838.0
+offset_top = 186.0
+offset_right = 911.0
+offset_bottom = 259.0
+
+[node name="Button3" type="Button" parent="CanvasLayer/Asteroid" index="3" unique_id=19505025]
+layout_mode = 0
+offset_left = 476.0
+offset_top = 357.0
+offset_right = 613.0
+offset_bottom = 494.0
+
+[node name="Button4" type="Button" parent="CanvasLayer/Asteroid" index="4" unique_id=1253351923]
+layout_mode = 0
+offset_left = 661.0
+offset_top = 211.0
+offset_right = 764.0
+offset_bottom = 314.0
+
+[node name="Button5" type="Button" parent="CanvasLayer/Asteroid" index="5" unique_id=549985798]
+layout_mode = 0
+offset_left = 236.0
+offset_top = 337.0
+offset_right = 387.0
+offset_bottom = 484.0
+
+[node name="Button6" type="Button" parent="CanvasLayer/Asteroid" index="6" unique_id=1750074783]
+layout_mode = 0
+offset_left = 790.0
+offset_top = 360.0
+offset_right = 893.0
+offset_bottom = 463.0
+
+[node name="Button7" type="Button" parent="CanvasLayer/Asteroid" index="7" unique_id=1554446315]
+layout_mode = 0
+offset_left = 410.0
+offset_top = 231.0
+offset_right = 454.0
+offset_bottom = 275.0
+
+[node name="Button8" type="Button" parent="CanvasLayer/Asteroid" index="8" unique_id=1935478239]
+layout_mode = 0
+offset_left = 683.0
+offset_top = 393.0
+offset_right = 735.0
+offset_bottom = 445.0
+
+[node name="Button9" type="Button" parent="CanvasLayer/Asteroid" index="9" unique_id=578779516]
+layout_mode = 0
+offset_left = 499.0
+offset_top = 146.0
+offset_right = 580.0
+offset_bottom = 229.0

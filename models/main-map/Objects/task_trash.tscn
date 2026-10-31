@@ -1,6 +1,8 @@
 [gd_scene format=3 uid="uid://bk1c6nx6e87i2"]
 
 [ext_resource type="PackedScene" uid="uid://crwtr4whvpmw6" path="res://models/main-map/Objects/Task-trash.glb" id="1_hv275"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_r3yww"]
+[ext_resource type="Script" uid="uid://dhwr460gqptav" path="res://models/main-map/Objects/trash.gd" id="3_vx5lt"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_mh7dq"]
 points = PackedVector3Array(1.3069028, 0.84407604, 0.4503909, 1.3069028, -0.90266335, 0.4503909, -0.8283279, -0.5144758, 3.1681786, -1.0225072, 1.0384834, -0.7144376, 0.72461206, 0.6500868, 3.1681786, 1.1129706, 0.84407604, -0.90850294, 0.9187913, -0.5144758, 3.1681786, -0.63414866, 0.6500868, 3.1681786, -1.0225072, -1.0970707, 0.64445615, 1.1129706, -0.90266335, -0.90850294, -1.2164394, 0.84407604, 0.64445615, 1.1129706, 1.0384834, 0.4503909, -0.56040055, -0.80785733, -1.0547147, 0.72461206, -1.0970707, 1.0325867, -1.0225072, -1.0970707, -0.7144376, -1.0225072, 1.0384834, 0.64445615, -1.2164394, -0.90266335, 0.64445615, 0.486335, 0.7646993, -1.0941571, 1.1129706, -1.0970707, -0.5203724, -0.56040055, 0.74927, -1.0547147, 0.9187913, 0.4558885, 3.1681786, 1.1129706, 1.0384834, -0.5203724, 0.486335, -0.8232866, -1.0941571, -0.63414866, -1.0970707, 1.0325867, 1.1129706, -1.0970707, 0.4503909, -0.7638503, 0.42007712, 3.0033882, -1.0728028, -0.8032334, -0.5265921, -0.39579317, 0.9412652, -0.9170028, -0.39579317, -0.99985254, -0.9170028, -1.0728028, 0.7446461, -0.5265921, 0.9187913, -1.0970707, 0.8389585, 0.47603518, -0.9773584, -0.87406695)
@@ -8,10 +10,13 @@ points = PackedVector3Array(1.3069028, 0.84407604, 0.4503909, 1.3069028, -0.9026
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_y50hw"]
 points = PackedVector3Array(-4.238431, -0.8333, 4.0217333, 2.6810684, 0.80401933, 9.83247, 2.5508165, -0.8333, 9.738063, 0.9188676, -0.51451385, 3.1681786, -4.9053707, 0.84434205, 4.528574, 0.7242702, 0.6500488, 3.1681786, 1.6949764, -0.90292937, 11.127971, 1.6949764, 0.84434205, 11.127971, -4.9053707, -0.90292937, 4.528574, 2.3717284, -0.8333, 7.0598774, 2.635332, 0.79372865, 7.604629, -3.6115787, 0.8030353, 3.5419312, 0.22687219, -0.8333, 4.3795414, -0.82946813, -0.51451385, 3.1681786, -3.5234785, -0.8333, 3.6646416, -0.11244238, 0.7904408, 4.1426134, 2.5508165, -0.8333, 7.5940804, -4.3629966, 0.8058555, 3.9006357, 2.281819, 0.7968334, 6.689798, 2.322298, 0.8069535, 10.584743, -1.3793217, -0.8333, 3.6646416, -0.63563097, 0.6500488, 3.1681786, 1.8351649, -0.8333, 5.9878864, -1.3873824, 0.7928775, 3.5859408, 2.1933403, -0.8333, 10.452245, -4.7904625, 0.8184877, 4.2288055, 1.9932958, 0.81920224, 11.013445, 2.4393454, 0.79072917, 7.0581207, 1.2930113, -0.8308807, 5.278629, -0.82946813, 0.4559265, 3.1681786, -0.8448565, -0.8333, 3.8431873, 1.2930113, 0.7722934, 5.278629)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 3.0
+
 [node name="Task-trash" unique_id=1284174127 instance=ExtResource("1_hv275")]
 
-[node name="Cylinder_003" parent="." index="0" unique_id=345752406]
-transform = Transform3D(0.08838833, -5.5962754e-08, -0.08838836, -0.08838836, 1.2391091e-07, -0.08838833, 1.7665265e-08, 0.9, 6.673136e-09, 1.6, 1.1, 0)
+[node name="Cylinder_003" parent="." index="0" unique_id=1640907305]
+transform = Transform3D(0.08838833, -5.5962754e-08, -0.08838836, -0.08838836, 1.2391091e-07, -0.08838833, 1.7665265e-08, 0.9, 6.673136e-09, 0.6, 1.1, 0)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cylinder_003" index="0" unique_id=1400741482]
 
@@ -20,3 +25,52 @@ shape = SubResource("ConvexPolygonShape3D_mh7dq")
 
 [node name="CollisionShape3D2" type="CollisionShape3D" parent="Cylinder_003/StaticBody3D" index="1" unique_id=2045331719]
 shape = SubResource("ConvexPolygonShape3D_y50hw")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1775739175 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_r3yww")
+task_ui = NodePath("../CanvasLayer/Trash")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=1896889671]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=528628060]
+layer = 100
+
+[node name="Trash" type="Control" parent="CanvasLayer" index="0" unique_id=1402110099]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_vx5lt")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Trash" index="0" unique_id=929987550]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -246.0
+offset_top = -197.0
+offset_right = 246.0
+offset_bottom = 197.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="CastOut" type="Button" parent="CanvasLayer/Trash" index="1" unique_id=452562115]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -73.75
+offset_top = -93.625
+offset_right = 73.75
+offset_bottom = 93.625
+grow_horizontal = 2
+grow_vertical = 2
+text = "CAST OUT"

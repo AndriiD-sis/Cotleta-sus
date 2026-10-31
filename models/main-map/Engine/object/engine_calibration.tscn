@@ -1,9 +1,14 @@
 [gd_scene format=3 uid="uid://cfq4woqmfv55u"]
 
 [ext_resource type="PackedScene" uid="uid://c1vx0f6v8wnwx" path="res://models/main-map/Engine/object/Engine-calibration.glb" id="1_tdjpd"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_ihc2i"]
+[ext_resource type="Script" uid="uid://cwya543dwei5e" path="res://models/main-map/Engine/object/calibrate.gd" id="3_s8ntm"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_k350t"]
 points = PackedVector3Array(1.0441064, -0.25294736, -0.92816234, -0.54683536, 0.93462163, 0.93462163, -0.54683536, 0.93462163, -0.93465024, -0.9969699, -1, 0.9999714, 1.3302554, -1, 0.9999714, -0.9969699, -1, -1, -0.9970032, 1, 1, 1.3302554, -1, -1, -0.9969699, 0.9999714, -1, 0.69795865, 0.116013475, 0.9131904, 0.26713037, 0.48531598, -0.9209159, 1.1878636, -0.42544228, 0.9362571, 0.26713037, 0.48531598, 0.9208873, 1.2705104, -0.62311184, -0.9793319, 1.2705104, -0.62311184, 0.9793033, 0.8755732, -0.050723784, -0.9284158, 0.8755732, -0.050723784, 0.92838717, 1.1878636, -0.42544228, -0.93628573, 0.69795865, 0.116013475, -0.91321903, -0.03492395, 0.6554074, 0.9245629, -0.03492395, 0.6554074, -0.9245915, 1.3061134, -0.8368146, 0.9792241, 1.3061134, -0.8368146, -0.9792527)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 5.0
 
 [node name="Engine-calibration" unique_id=462409539 instance=ExtResource("1_tdjpd")]
 
@@ -11,3 +16,51 @@ points = PackedVector3Array(1.0441064, -0.25294736, -0.92816234, -0.54683536, 0.
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube/StaticBody3D" index="0" unique_id=1985188525]
 shape = SubResource("ConvexPolygonShape3D_k350t")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1535199649 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_ihc2i")
+task_ui = NodePath("../CanvasLayer/Calibrate")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=178220115]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=1180791778]
+layer = 100
+
+[node name="Calibrate" type="Control" parent="CanvasLayer" index="0" unique_id=138480417]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_s8ntm")
+
+[node name="Panel" type="Panel" parent="CanvasLayer/Calibrate" index="0" unique_id=176158865]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -181.8125
+offset_top = -227.625
+offset_right = 181.8125
+offset_bottom = 227.625
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VSlider" type="VSlider" parent="CanvasLayer/Calibrate" index="1" unique_id=1801471791]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -8.0
+offset_top = -130.5
+offset_right = 8.0
+offset_bottom = 130.5
+grow_horizontal = 2
+grow_vertical = 2

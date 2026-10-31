@@ -1,16 +1,84 @@
 [gd_scene format=3 uid="uid://cxourus8y148d"]
 
 [ext_resource type="PackedScene" uid="uid://cxe1ci7886am2" path="res://models/main-map/Navigation/object/Navigation-panel.glb" id="1_7xhwu"]
+[ext_resource type="Script" uid="uid://cvio6a5p5w8oy" path="res://task_station.gd" id="2_2w3lx"]
+[ext_resource type="Script" uid="uid://wd0ghl3u8y8w" path="res://models/main-map/Navigation/object/steer.gd" id="3_2w3lx"]
 
 [sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_7xhwu"]
 points = PackedVector3Array(91.278595, -33.293514, -0.17542355, 157.3734, 45.689606, 14.233044, -16.009201, 2.3342514, -4.341154, 138.82649, 8.513323, 23.526203, 175.97852, 27.092978, 4.9489756, -16.009201, -37.92308, 1.8512554, 86.17343, 33.289024, 17.327732, 172.89383, -13.147379, 14.233044, -0.5081711, 2.3342514, -7.4388742, -16.009201, -0.75528455, 4.9489756, -16.009201, -41.021103, -4.341154, 75.70184, -17.435764, -4.315014, 175.97852, -10.0493555, 8.043665, 132.63773, 8.513323, -1.243434, 154.28873, 45.689606, 20.425453, 175.97852, -6.951332, 17.327732, 132.63773, 45.689606, 14.233044, 110.92851, -31.727032, 4.9489756, 182.18669, 30.191, 8.043665, 172.89383, 36.387047, 8.043665, 132.63773, -22.432962, 1.8512554, -12.905113, -22.432962, -7.4388742, 104.75915, 30.191, 20.425453, -16.009201, -10.0493555, 4.9489756, 154.28873, 14.709371, 23.526203, 123.344864, -0.75528455, 20.425453, 80.57366, -33.0153, -2.05423, 151.20404, 42.591583, 11.135324, 154.28873, 20.905418, 1.8512554, 182.18669, 2.3342514, 8.043665, 141.91118, 45.689606, 20.425453, 104.75915, 39.49356, 14.233044)
 
+[sub_resource type="SphereShape3D" id="SphereShape3D_ycv45"]
+radius = 6.0
+
 [node name="Navigation-panel" unique_id=500217556 instance=ExtResource("1_7xhwu")]
 
 [node name="Cube_014" parent="." index="0" unique_id=403761923]
-transform = Transform3D(0.014339413, 0.01730943, 0.1707529, 3.725291e-10, 0.045315392, -0.0972022, -0.0204788, 0.012120196, 0.11956249, -4.6266127, 1.1825837, 3.7955413)
+transform = Transform3D(0.014339413, 0.01730943, 0.1707529, 3.725291e-10, 0.045315392, -0.0972022, -0.0204788, 0.012120196, 0.11956249, -2.2266126, 1.1825837, 1.7955413)
 
 [node name="StaticBody3D" type="StaticBody3D" parent="Cube_014" index="0" unique_id=208457268]
 
 [node name="CollisionShape3D" type="CollisionShape3D" parent="Cube_014/StaticBody3D" index="0" unique_id=1191869664]
+transform = Transform3D(1, 0, 2.3841858e-07, 7.450581e-09, 1, 1.1920929e-07, -3.7252903e-09, -3.7252903e-09, 1, 0, 0, 0)
 shape = SubResource("ConvexPolygonShape3D_7xhwu")
+
+[node name="Area3D" type="Area3D" parent="." index="1" unique_id=1946372142 node_paths=PackedStringArray("task_ui")]
+collision_mask = 2
+script = ExtResource("2_2w3lx")
+task_ui = NodePath("../CanvasLayer/Steer")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Area3D" index="0" unique_id=376929408]
+shape = SubResource("SphereShape3D_ycv45")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="." index="2" unique_id=798698445]
+layer = 100
+
+[node name="Steer" type="Control" parent="CanvasLayer" index="0" unique_id=1901113231]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("3_2w3lx")
+
+[node name="Field" type="ColorRect" parent="CanvasLayer/Steer" index="0" unique_id=1050991755]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 145.0
+offset_top = 135.0
+offset_right = -145.0
+offset_bottom = -135.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.2730193, 0.38064378, 0.4296405, 1)
+
+[node name="Center" type="ColorRect" parent="CanvasLayer/Steer" index="1" unique_id=289429171]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.0
+offset_top = -17.0
+offset_right = 17.0
+offset_bottom = 17.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="Crosshair" type="Button" parent="CanvasLayer/Steer" index="2" unique_id=990238872]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -318.0
+offset_top = -134.0
+offset_right = -268.0
+offset_bottom = -84.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "C.H."
